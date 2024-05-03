@@ -229,3 +229,4 @@ bool Calibration::key_press_event(int key, int modifiers) {
     else
         return Viewer::key_press_event(key, modifiers);
 }
+
