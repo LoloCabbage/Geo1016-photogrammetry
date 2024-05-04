@@ -24,7 +24,7 @@ TO DO
                  "\t\t- R: the 3x3 rotation matrix encoding camera orientation\n"
                  "\t\t- t: a 3D vector encoding camera location.\n"
                  "\tIMPORTANT: don't forget to write your recovered parameters to the above variables." << std::endl;
-   std::cout << "\n\tTODO: After you implement this function, please return 'true' - this will trigger the viewer to\n"
+    std::cout << "\n\tTODO: After you implement this function, please return 'true' - this will trigger the viewer to\n"
                  "\t\tupdate the rendering using your recovered camera parameters. This can help you to visually check\n"
                  "\t\tif your calibration is successful or not.\n\n" << std::flush;
 
