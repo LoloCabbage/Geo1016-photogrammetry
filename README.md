@@ -175,5 +175,6 @@ Compute the inverse of a matrix
     inverse(T, invT);
     
 Let's check if the inverse is correct
+
     std::cout << "B * invB: \n" << B * invB << std::endl;
 
