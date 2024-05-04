@@ -1,9 +1,9 @@
-#calibration.cpp
+# calibration.cpp
   Calls the Calibration::calibration function of the calibtaion_method.cpp file. 
   In this file they insert the points saved in the text file to the calibration function. And it inserts the other parameters, which needs to be updates in the calibration::calibration function.
   --> I do not know what happens when the calibration is a succes??
   
-#calibtaion_method.cpp
+# calibtaion_method.cpp
 TO DO
 1. check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
      --> They already check this in line 204 of calibration.cpp right?
