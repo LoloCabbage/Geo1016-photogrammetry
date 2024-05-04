@@ -46,28 +46,6 @@ bool Calibration::calibration(
         Matrix33& R, /// output: the 3x3 rotation matrix encoding camera rotation.
         Vector3D& t) /// output：a 3D vector encoding camera translation.
 {
-    std::cout << "\nTODO: I am going to implement the calibration() function in the following file:\n"
-                 "\t    - calibration_method.cpp\n\n";
-
-    std::cout << "[Liangliang]:\n"
-                 "\tCamera calibration requires computing the SVD and inverse of matrices.\n"
-                 "\tIn this assignment, I provide you with a 'Matrix' and a 'Vector' data structures for storing and\n"
-                 "\tmanipulating matrices and vectors of arbitrary sizes. I also wrote some code to show you how to:\n"
-                 "\t    - compute the SVD of a matrix;\n"
-                 "\t    - compute the inverse of a matrix;\n"
-                 "\t    - compute the transpose of a matrix.\n\n"
-                 "\tFeel free to use any of the provided data structures and functions. The commonly used linear algebra\n"
-                 "\tfunctions are provided in the following files:\n"
-                 "\t    - Calibration/matrix.h  Matrices of arbitrary dimensions and related functions.\n"
-                 "\t    - Calibration/vector.h  Vectors of arbitrary dimensions and related functions.\n"
-                 "\t    - Calibration/matrix_algo.h  Determinant, inverse, SVD, linear least-squares...\n"
-                 "\tPlease refer to the above files for a complete list of useful functions and their usage.\n\n"
-                 "\tIn your final submission, please\n"
-                 "\t    - delete ALL unrelated test or debug code and avoid unnecessary output.\n"
-                 "\t    - include all the source code (and please do NOT modify the structure of the directories).\n"
-                 "\t    - do NOT include the 'build' directory (which contains the intermediate files in a build step).\n"
-                 "\t    - make sure your code compiles and can reproduce your results without ANY modification.\n\n" << std::flush;
-
     /// Below are a few examples showing some useful data structures and functions.
 
     // This is a 1D array of 'double' values. Alternatively, you can use 'double mat[25]' but you cannot change it
