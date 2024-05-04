@@ -11,6 +11,22 @@ TO DO
 4. solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points.
 5. extract intrinsic parameters from M.
 6. extract extrinsic parameters from M.
+   ## requirements for input and output
+    std::cout << "\n[Liangliang]:\n"
+                 "\tThe input parameters of this function are:\n"
+                 "\t\t- points_3d: An array of 3D points (input to this function)\n"
+                 "\t\t- points_2d: An array of 2D image points (input to this function)\n"
+                 "\tThis function must return either 'true' on success or 'false' otherwise. On success, the camera\n"
+                 "\tparameters are returned by the following variables:\n"
+                 "\t\t- fx and fy: the focal lengths\n"
+                 "\t\t- cx and cy: the principal point\n"
+                 "\t\t- s: the skew factor, i.e., s = -alpha * cot(theta)\n"
+                 "\t\t- R: the 3x3 rotation matrix encoding camera orientation\n"
+                 "\t\t- t: a 3D vector encoding camera location.\n"
+                 "\tIMPORTANT: don't forget to write your recovered parameters to the above variables." << std::endl;
+   std::cout << "\n\tTODO: After you implement this function, please return 'true' - this will trigger the viewer to\n"
+                 "\t\tupdate the rendering using your recovered camera parameters. This can help you to visually check\n"
+                 "\t\tif your calibration is successful or not.\n\n" << std::flush;
 
 # Instruction (to be removed inside the code but I copied them here)
 ## the require data structure 
