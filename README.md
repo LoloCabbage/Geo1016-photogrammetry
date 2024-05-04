@@ -13,7 +13,7 @@ TO DO
 6. extract extrinsic parameters from M.
 
 # Instruction (to be removed) inside the code
-  std::cout << "\nTODO: I am going to implement the calibration() function in the following file:\n"
+    std::cout << "\nTODO: I am going to implement the calibration() function in the following file:\n"
                  "\t    - calibration_method.cpp\n\n";
 
     std::cout << "[Liangliang]:\n"
