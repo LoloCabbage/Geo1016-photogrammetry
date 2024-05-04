@@ -25,10 +25,7 @@
 #include "calibration.h"
 #include "matrix_algo.h"
 
-
 using namespace easy3d;
-
-
 
 /**
  * TODO: Finish this function for calibrating a camera from the corresponding 3D-2D point pairs.
@@ -61,9 +58,6 @@ bool Calibration::calibration(
 
     // TODO: extract extrinsic parameters from M.
 
-    std::cout << "\n\tTODO: After you implement this function, please return 'true' - this will trigger the viewer to\n"
-                 "\t\tupdate the rendering using your recovered camera parameters. This can help you to visually check\n"
-                 "\t\tif your calibration is successful or not.\n\n" << std::flush;
     return false;
 }
 
