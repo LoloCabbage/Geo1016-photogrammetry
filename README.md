@@ -11,7 +11,7 @@ TO DO
 4. solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points.
 5. extract intrinsic parameters from M.
 6. extract extrinsic parameters from M.
-   ## requirements for input and output
+## requirements for input and output
     std::cout << "\n[Liangliang]:\n"
                  "\tThe input parameters of this function are:\n"
                  "\t\t- points_3d: An array of 3D points (input to this function)\n"
