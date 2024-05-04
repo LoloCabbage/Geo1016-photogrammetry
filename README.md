@@ -150,39 +150,31 @@ TO DO
     // Compute the SVD decomposition of A
     svd_decompose(A, U, S, V);
 
-    // Now let's check if the SVD result is correct
+Now let's check if the SVD result is correct
 
-<<<<<<< HEAD
-// Check 1: U is orthogonal, so U * U^T must be identity
+
+Check 1: U is orthogonal, so U * U^T must be identity
+
     std::cout << "U*U^T: \n" << U * transpose(U) << std::endl;
 
-// Check 2: V is orthogonal, so V * V^T must be identity
+Check 2: V is orthogonal, so V * V^T must be identity
+
     std::cout << "V*V^T: \n" << V * transpose(V) << std::endl;
 
-// Check 3: S must be a diagonal matrix
+Check 3: S must be a diagonal matrix
+
     std::cout << "S: \n" << S << std::endl;
 
-// Check 4: according to the definition, A = U * S * V^T
+Check 4: according to the definition, A = U * S * V^T
+
     std::cout << "M - U * S * V^T: \n" << A - U * S * transpose(V) << std::endl;
-=======
-    // Check 1: U is orthogonal, so U * U^T must be identity
-//    std::cout << "U*U^T: \n" << U * transpose(U) << std::endl;
+    
 
-    // Check 2: V is orthogonal, so V * V^T must be identity
-//    std::cout << "V*V^T: \n" << V * transpose(V) << std::endl;
-
-    // Check 3: S must be a diagonal matrix
-//    std::cout << "S: \n" << S << std::endl;
-
-    // Check 4: according to the definition, A = U * S * V^T
-//    std::cout << "M - U * S * V^T: \n" << A - U * S * transpose(V) << std::endl;
->>>>>>> parent of 63b8f18 (Update README.md)
-
-    // Compute the inverse of a matrix
+Compute the inverse of a matrix
     Matrix invT;
     inverse(T, invT);
-    // Let's check if the inverse is correct
-//    std::cout << "B * invB: \n" << B * invB << std::endl;
+    
+Let's check if the inverse is correct
 
-    // TODO: the above code just demonstrates some useful data structures and APIs. Please remove all above code in your
-    //       final submission.
+    std::cout << "B * invB: \n" << B * invB << std::endl;
+
