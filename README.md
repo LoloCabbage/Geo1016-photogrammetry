@@ -153,16 +153,16 @@ TO DO
     // Now let's check if the SVD result is correct
 
 // Check 1: U is orthogonal, so U * U^T must be identity
-    //    std::cout << "U*U^T: \n" << U * transpose(U) << std::endl;
+    std::cout << "U*U^T: \n" << U * transpose(U) << std::endl;
 
 // Check 2: V is orthogonal, so V * V^T must be identity
-    //    std::cout << "V*V^T: \n" << V * transpose(V) << std::endl;
+    std::cout << "V*V^T: \n" << V * transpose(V) << std::endl;
 
 // Check 3: S must be a diagonal matrix
-    //    std::cout << "S: \n" << S << std::endl;
+    std::cout << "S: \n" << S << std::endl;
 
 // Check 4: according to the definition, A = U * S * V^T
-    //    std::cout << "M - U * S * V^T: \n" << A - U * S * transpose(V) << std::endl;
+    std::cout << "M - U * S * V^T: \n" << A - U * S * transpose(V) << std::endl;
 
     // Compute the inverse of a matrix
     Matrix invT;
