@@ -5,11 +5,11 @@
   
 # calibtaion_method.cpp
 TO DO
-1. check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match) - [x]
-2. construct the P matrix (so P * m = 0) - [ ]
-3. solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points. - [ ]
-4. extract intrinsic parameters from M. - [ ]
-5. extract extrinsic parameters from M. - [ ]
+- [x] check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match) - [x]
+- [ ] construct the P matrix (so P * m = 0) 
+- [ ] solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points. 
+- [ ] extract intrinsic parameters from M.
+- [ ] extract extrinsic parameters from M. 
 ## requirements for input and output
     std::cout << "\n[Liangliang]:\n"
                  "\tThe input parameters of this function are:\n"
