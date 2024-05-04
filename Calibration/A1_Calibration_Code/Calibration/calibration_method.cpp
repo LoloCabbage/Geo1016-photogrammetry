@@ -32,6 +32,25 @@ using namespace easy3d;
  *       You may define a few functions for some sub-tasks.
  * @return True on success, otherwise false. On success, the camera parameters are returned by fx, fy, cx, cy, skew, R, and t).
  */
+
+//// check if input is valid
+bool check_input(const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d) {
+    // check if the number of correspondences >= 6
+    if (points_3d.size() < 6 || points_2d.size() < 6) {
+        std::cerr << "Error: the number of correspondences must be at least 6." << std::endl;
+        return false;
+    }
+
+    // check if the sizes of 2D/3D points match
+    else if (points_3d.size() != points_2d.size()) {
+        std::cerr << "Error: the sizes of 2D/3D points must match." << std::endl;
+        return false;
+    }
+
+    std::cout << "Input data is valid." << std::endl;
+    return true;
+}
+
 bool Calibration::calibration(
         const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
         const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
@@ -47,7 +66,7 @@ bool Calibration::calibration(
     // implementation starts ...
 
     // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
-
+    bool valid = check_input(points_3d, points_2d);
     // TODO: construct the P matrix (so P * m = 0).
 
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
