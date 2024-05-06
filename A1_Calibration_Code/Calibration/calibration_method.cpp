@@ -71,6 +71,13 @@ bool Calibration::calibration(
     int size_input_points = points_3d.size();
     std::vector<double> P_row(12,0);
     std::vector<std::vector<double>> P_array(size_input_points, P_row);
+    std::vector<double> flattenedArray;
+    for (const auto& row : P_array) {
+        flattenedArray.insert(flattenedArray.end(), row.begin(), row.end());
+    }
+    Matrix P(size_input_points * 2, 12, flattenedArray);
+    P.load_zero();
+
     for (int i = 0; i < points_3d.size(); ++i) {
         int i_in_P = i * 2;
 
@@ -80,35 +87,35 @@ bool Calibration::calibration(
         double ui = points_2d[i][0];
         double vi = points_2d[i][1];
 
-        P_array[i_in_P][0] = Xi;
-        P_array[i_in_P][1] = Yi;
-        P_array[i_in_P][2] = Zi;
-        P_array[i_in_P][3] = 1.0;
+        P[i_in_P][0] = Xi;
+        P[i_in_P][1] = Yi;
+        P[i_in_P][2] = Zi;
+        P[i_in_P][3] = 1.0;
 
-        P_array[i_in_P][8] = -ui * Xi;
-        P_array[i_in_P][9] = -ui * Yi;
-        P_array[i_in_P][10] = -ui * Zi;
-        P_array[i_in_P][11] = -ui;
+        P[i_in_P][8] = -ui * Xi;
+        P[i_in_P][9] = -ui * Yi;
+        P[i_in_P][10] = -ui * Zi;
+        P[i_in_P][11] = -ui;
 
-        P_array[i_in_P+1][4] = Xi;
-        P_array[i_in_P+1][5] = Yi;
-        P_array[i_in_P+1][6] = Zi;
-        P_array[i_in_P+1][7] = 1.0;
+        P[i_in_P+1][4] = Xi;
+        P[i_in_P+1][5] = Yi;
+        P[i_in_P+1][6] = Zi;
+        P[i_in_P+1][7] = 1.0;
 
-        P_array[i_in_P+1][8] = -vi * Xi;
-        P_array[i_in_P+1][9] = -vi * Yi;
-        P_array[i_in_P+1][10] = -vi * Zi;
-        P_array[i_in_P+1][11] = -vi;
+        P[i_in_P+1][8] = -vi * Xi;
+        P[i_in_P+1][9] = -vi * Yi;
+        P[i_in_P+1][10] = -vi * Zi;
+        P[i_in_P+1][11] = -vi;
 
     }
-    std::cout << "HELLO" << std::endl;
-    for (const auto& row : P_array) {
-        for (const auto& element : row) {
-            std::cout << element << " ";
+
+    for (int i = 0; i < P.rows(); ++i) {
+        for (int j = 0; j < P.cols(); ++j) {
+            std::cout << P(i, j) << " ";
         }
         std::cout << std::endl;
     }
-//    Matrix P = Matrix(size_input_points * 2,12,P_array);
+
 
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
     //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
