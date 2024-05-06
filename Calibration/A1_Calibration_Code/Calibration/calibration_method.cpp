@@ -67,6 +67,9 @@ bool Calibration::calibration(
 
     // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
     bool valid = check_input(points_3d, points_2d);
+    if (!valid) {
+        return false;
+    }
     // TODO: construct the P matrix (so P * m = 0).
     int size_input_points = points_3d.size();
     std::vector<double> P_row(12,0);
