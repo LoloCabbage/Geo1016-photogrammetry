@@ -51,23 +51,7 @@ bool check_input(const std::vector<Vector3D>& points_3d, const std::vector<Vecto
     return true;
 }
 
-bool Calibration::calibration(
-        const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
-        const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
-        double& fx,  /// output: focal length (i.e., K[0][0]).
-        double& fy,  /// output: focal length (i.e., K[1][1]).
-        double& cx,  /// output: x component of the principal point (i.e., K[0][2]).
-        double& cy,  /// output: y component of the principal point (i.e., K[1][2]).
-        double& s,   /// output: skew factor (i.e., K[0][1]), which is s = -alpha * cot(theta).
-        Matrix33& R, /// output: the 3x3 rotation matrix encoding camera rotation.
-        Vector3D& t) /// output：a 3D vector encoding camera translation.
-{
-    //--------------------------------------------------------------------------------------------------------------
-    // implementation starts ...
-
-    // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
-    bool valid = check_input(points_3d, points_2d);
-    // TODO: construct the P matrix (so P * m = 0).
+Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d){
     int size_input_points = points_3d.size();
     std::vector<double> P_row(12,0);
     std::vector<std::vector<double>> P_array(size_input_points, P_row);
@@ -108,7 +92,27 @@ bool Calibration::calibration(
         P[i_in_P+1][11] = -vi;
 
     }
+    return P;
+}
 
+bool Calibration::calibration(
+        const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
+        const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
+        double& fx,  /// output: focal length (i.e., K[0][0]).
+        double& fy,  /// output: focal length (i.e., K[1][1]).
+        double& cx,  /// output: x component of the principal point (i.e., K[0][2]).
+        double& cy,  /// output: y component of the principal point (i.e., K[1][2]).
+        double& s,   /// output: skew factor (i.e., K[0][1]), which is s = -alpha * cot(theta).
+        Matrix33& R, /// output: the 3x3 rotation matrix encoding camera rotation.
+        Vector3D& t) /// output：a 3D vector encoding camera translation.
+{
+    //--------------------------------------------------------------------------------------------------------------
+    // implementation starts ...
+
+    // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
+    bool valid = check_input(points_3d, points_2d);
+    // TODO: construct the P matrix (so P * m = 0).
+    Matrix P = construct_P(points_3d, points_2d);
     for (int i = 0; i < P.rows(); ++i) {
         for (int j = 0; j < P.cols(); ++j) {
             std::cout << P(i, j) << " ";
