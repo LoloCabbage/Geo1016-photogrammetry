@@ -88,14 +88,15 @@ Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vec
     return P;
 }
 
-Vector construct_m(Matrix &P, int size_input_points){
+Matrix construct_m(Matrix &P, int size_input_points){
     Matrix U(size_input_points*2, size_input_points*2);
     Matrix S(size_input_points*2, 12);
     Matrix V(12, 12);
     svd_decompose(P, U, S, V);
     int numCols = V.cols();
     Vector m = V.get_column(numCols - 1);
-    return m;
+    Matrix M(3, 4, m.data());
+    return M;
 }
 
 bool Calibration::calibration(
@@ -121,12 +122,9 @@ bool Calibration::calibration(
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
     //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
     //             should be very close to your input images points.
-    Vector m = construct_m(P, size_input_points);
-    std::cout << m << std::endl;
+    Matrix M = construct_m(P, size_input_points);
+    std::cout << M << std::endl;
     // calculate the P*m
-    std::cout << "P * m = " << P * m << std::endl;
-
-
 
     // TODO: extract intrinsic parameters from M.
 
