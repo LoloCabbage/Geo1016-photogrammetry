@@ -51,8 +51,6 @@ bool check_input(const std::vector<Vector3D>& points_3d, const std::vector<Vecto
     return true;
 }
 
-
-
 bool Calibration::calibration(
         const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
         const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
@@ -69,11 +67,14 @@ bool Calibration::calibration(
 
     // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
     bool valid = check_input(points_3d, points_2d);
-    if (!valid) {
-        return false;
-    }
     // TODO: construct the P matrix (so P * m = 0).
-    
+    int size_input_points = points_3d.size();
+    std::vector<double> empty_array(size_input_points,12);
+    Matrix P = Matrix(size_input_points,12,empty_array);
+    for (int i: points_3d.size()){
+
+    }
+
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
     //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
     //             should be very close to your input images points.
