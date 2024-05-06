@@ -51,15 +51,8 @@ bool check_input(const std::vector<Vector3D>& points_3d, const std::vector<Vecto
     return true;
 }
 
-Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d){
-    int size_input_points = points_3d.size();
-    std::vector<double> P_row(12,0);
-    std::vector<std::vector<double>> P_array(size_input_points, P_row);
-    std::vector<double> flattenedArray;
-    for (const auto& row : P_array) {
-        flattenedArray.insert(flattenedArray.end(), row.begin(), row.end());
-    }
-    Matrix P(size_input_points * 2, 12, flattenedArray);
+Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d, int size_input_points){
+    Matrix P(size_input_points * 2, 12);
     P.load_zero();
 
     for (int i = 0; i < points_3d.size(); ++i) {
@@ -95,6 +88,16 @@ Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vec
     return P;
 }
 
+Vector construct_m(Matrix &P, int size_input_points){
+    Matrix U(size_input_points*2, size_input_points*2);
+    Matrix S(size_input_points*2, 12);
+    Matrix V(12, 12);
+    svd_decompose(P, U, S, V);
+    int numRows = V.rows();
+    Vector m = V.get_row(numRows - 1);
+    return m;
+}
+
 bool Calibration::calibration(
         const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
         const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
@@ -112,18 +115,14 @@ bool Calibration::calibration(
     // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
     bool valid = check_input(points_3d, points_2d);
     // TODO: construct the P matrix (so P * m = 0).
-    Matrix P = construct_P(points_3d, points_2d);
-    for (int i = 0; i < P.rows(); ++i) {
-        for (int j = 0; j < P.cols(); ++j) {
-            std::cout << P(i, j) << " ";
-        }
-        std::cout << std::endl;
-    }
-
+    int size_input_points = points_3d.size();
+    Matrix P = construct_P(points_3d, points_2d, size_input_points);
 
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
     //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
     //             should be very close to your input images points.
+    Vector m = construct_m(P, size_input_points);
+    std::cout << m << std::endl;
 
     // TODO: extract intrinsic parameters from M.
 
