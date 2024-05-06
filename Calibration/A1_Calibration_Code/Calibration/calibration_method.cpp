@@ -85,7 +85,20 @@ bool Calibration::calibration(
         P_array[i_in_P][2] = Zi;
         P_array[i_in_P][3] = 1.0;
 
-        
+        P_array[i_in_P][8] = -ui * Xi;
+        P_array[i_in_P][9] = -ui * Yi;
+        P_array[i_in_P][10] = -ui * Zi;
+        P_array[i_in_P][11] = -ui;
+
+        P_array[i_in_P+1][4] = Xi;
+        P_array[i_in_P+1][5] = Yi;
+        P_array[i_in_P+1][6] = Zi;
+        P_array[i_in_P+1][7] = 1.0;
+
+        P_array[i_in_P+1][8] = -vi * Xi;
+        P_array[i_in_P+1][9] = -vi * Yi;
+        P_array[i_in_P+1][10] = -vi * Zi;
+        P_array[i_in_P+1][11] = -vi;
 
     }
 //    Matrix P = Matrix(size_input_points * 2,12,P_array);
