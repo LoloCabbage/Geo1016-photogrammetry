@@ -69,11 +69,26 @@ bool Calibration::calibration(
     bool valid = check_input(points_3d, points_2d);
     // TODO: construct the P matrix (so P * m = 0).
     int size_input_points = points_3d.size();
-    std::vector<double> empty_array(size_input_points,12);
-    Matrix P = Matrix(size_input_points,12,empty_array);
-    for (int i: points_3d.size()){
+    std::vector<double> P_row(12,0);
+    std::vector<std::vector<double>> P_array(size_input_points, P_row);
+    for (int i = 0; i < points_3d.size(); ++i) {
+        int i_in_P = i * 2;
+
+        double Xi = points_3d[i][0];
+        double Yi = points_3d[i][1];
+        double Zi = points_3d[i][2];
+        double ui = points_2d[i][0];
+        double vi = points_2d[i][1];
+
+        P_array[i_in_P][0] = Xi;
+        P_array[i_in_P][1] = Yi;
+        P_array[i_in_P][2] = Zi;
+        P_array[i_in_P][3] = 1.0;
+
+        
 
     }
+//    Matrix P = Matrix(size_input_points * 2,12,P_array);
 
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
     //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
