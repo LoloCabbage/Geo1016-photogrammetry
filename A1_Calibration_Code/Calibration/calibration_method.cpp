@@ -99,6 +99,33 @@ Matrix construct_m(Matrix &P, int size_input_points){
     return M;
 }
 
+void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d){
+    Matrix homo_matrix(4,points_3d.size());
+    for (int i = 0; i < points_3d.size(); ++i) {
+        double x = points_3d[i][0];
+        double y = points_3d[i][1];
+        double z = points_3d[i][2];
+
+        homo_matrix[0][i] = x;
+        homo_matrix[1][i] = y;
+        homo_matrix[2][i] = z;
+        homo_matrix[3][i] = 1;
+    }
+
+    Matrix M_homo = M * homo_matrix;
+    Matrix proj_2D(2,points_3d.size());
+    double rmse = 0;
+    for (int i = 0; i < points_3d.size(); ++i) {
+        proj_2D[0][i] = M_homo[0][i]/M_homo[2][i];
+        proj_2D[1][i] = M_homo[1][i]/M_homo[2][i];
+        rmse = rmse + (proj_2D[0][i]-points_2d[i][0])*(proj_2D[0][i]-points_2d[i][0]);
+        rmse = rmse + (proj_2D[1][i]-points_2d[i][1])*(proj_2D[1][i]-points_2d[i][1]);
+    }
+    rmse = rmse/points_3d.size()/2;
+    std::cout << "The projected 2D coordinates" << proj_2D << std::endl;
+    std::cout << "The rmse of projected data is :"<< rmse << std::endl;
+}
+
 bool Calibration::calibration(
         const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
         const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
@@ -120,11 +147,11 @@ bool Calibration::calibration(
     Matrix P = construct_P(points_3d, points_2d, size_input_points);
     std::cout << P << std::endl;
     // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
-    //   Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point
-    //             should be very close to your input images points.
     Matrix M = construct_m(P, size_input_points);
     std::cout << M << std::endl;
-    // calculate the P*m
+    /// Optional: you can check if your M is correct by applying M on the 3D points.
+    /// If correct, the projected point should be very close to your input images points.
+    proj_2D(M, points_3d, points_2d);
 
     // TODO: extract intrinsic parameters from M.
 
