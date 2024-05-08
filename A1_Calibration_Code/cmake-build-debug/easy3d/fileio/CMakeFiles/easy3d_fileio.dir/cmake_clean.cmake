@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/libeasy3d_fileio.a"
-  "../../lib/libeasy3d_fileio.pdb"
+  "../../lib/easy3d_fileio.lib"
+  "../../lib/easy3d_fileio.pdb"
   "CMakeFiles/easy3d_fileio.dir/image_io.cpp.obj"
   "CMakeFiles/easy3d_fileio.dir/image_io.cpp.obj.d"
   "CMakeFiles/easy3d_fileio.dir/point_cloud_io.cpp.obj"

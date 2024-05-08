@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/chrono_watch.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/dialogs.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/dialogs.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/dialogs.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/file_system.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/file_system.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/file_system.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/stop_watch.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/stop_watch.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/stop_watch.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/string.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/string.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/string.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/easy3d/util/threading.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/threading.cpp.obj" "gcc" "easy3d/util/CMakeFiles/easy3d_util.dir/threading.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/chrono_watch.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/dialogs.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/dialogs.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/dialogs.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/file_system.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/file_system.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/file_system.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/stop_watch.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/stop_watch.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/stop_watch.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/string.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/string.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/string.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/easy3d/util/threading.cpp" "easy3d/util/CMakeFiles/easy3d_util.dir/threading.cpp.obj" "msvc" "easy3d/util/CMakeFiles/easy3d_util.dir/threading.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

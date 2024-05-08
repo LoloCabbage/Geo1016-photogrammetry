@@ -69,3 +69,8 @@ A1_Calibration_Code/cmake-build-debug/Testing/Temporary/LastTest.log
 *.pdb
 A1_Calibration_Code/cmake-build-debug/Testing/Temporary/LastTest.log
 A1_Calibration_Code/cmake-build-debug/Testing/Temporary/LastTest.log
+*.internal
+*.cmake
+*.internal
+*.cbp
+*.rsp

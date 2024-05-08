@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/libeasy3d_viewer.a"
-  "../../lib/libeasy3d_viewer.pdb"
+  "../../lib/easy3d_viewer.lib"
+  "../../lib/easy3d_viewer.pdb"
   "CMakeFiles/easy3d_viewer.dir/camera.cpp.obj"
   "CMakeFiles/easy3d_viewer.dir/camera.cpp.obj.d"
   "CMakeFiles/easy3d_viewer.dir/clipping_plane.cpp.obj"

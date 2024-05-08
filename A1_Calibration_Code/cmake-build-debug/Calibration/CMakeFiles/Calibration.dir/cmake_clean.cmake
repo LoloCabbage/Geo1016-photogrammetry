@@ -2,7 +2,7 @@ file(REMOVE_RECURSE
   "../bin/Calibration.exe"
   "../bin/Calibration.exe.manifest"
   "../bin/Calibration.pdb"
-  "../lib/libCalibration.dll.a"
+  "../lib/Calibration.lib"
   "CMakeFiles/Calibration.dir/calibration.cpp.obj"
   "CMakeFiles/Calibration.dir/calibration.cpp.obj.d"
   "CMakeFiles/Calibration.dir/calibration_method.cpp.obj"

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glog/logging.cc" "3rd_party/glog/CMakeFiles/3rd_glog.dir/logging.cc.obj" "gcc" "3rd_party/glog/CMakeFiles/3rd_glog.dir/logging.cc.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glog/logging.cc" "3rd_party/glog/CMakeFiles/3rd_glog.dir/logging.cc.obj" "msvc" "3rd_party/glog/CMakeFiles/3rd_glog.dir/logging.cc.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
