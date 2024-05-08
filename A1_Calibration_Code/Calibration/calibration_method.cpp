@@ -128,6 +128,43 @@ void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std:
     std::cout << "The rmse of projected data is :"<< rmse << std::endl;
 }
 
+void extracting_parameters(Matrix &M, double& fx, double& fy, double& cx, double& cy, double& s, Matrix33& R, Vector3D& t){
+    Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
+    Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
+    Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
+    Vector3D b = {M[0][3], M[1][3], M[2][3]};
+
+    double rho = 1 / length(a3);
+    double theta = acos(-
+                                dot(cross(a1,a3), cross(a2,a3)) /
+                        (length(cross(a1, a3)) * length(cross(a2, a3))));
+    double alpha = rho * rho * length(cross(a1, a3)) * sin(theta);
+    double beta = rho * rho * length(cross(a2, a3))* sin(theta);
+
+    fx = alpha;
+    fy = beta / sin(theta);
+    s = - alpha / tan(theta);
+    cx = rho * rho * dot (a1, a3);
+    cy = rho * rho * dot (a2, a3);
+
+    Vector3D r1 = cross(a2,a3) / length(cross(a2,a3));
+    Vector3D r3 = rho * a3;
+    Vector3D r2 = cross(r3, r1);
+    R.set_row(0, r1);
+    R.set_row(1,r2);
+    R.set_row(2,r3);
+
+    Matrix33 K;
+    K.set(0,0,fx);
+    K.set(0,1,s);
+    K.set(0,2,cx);
+    K.set(1,1,fy);
+    K.set(1,2,cy);
+    K.set(2,2,1);
+
+    t =  rho * inverse(K) * b;
+}
+
 bool Calibration::calibration(
         const std::vector<Vector3D>& points_3d, /// input: An array of 3D points.
         const std::vector<Vector2D>& points_2d, /// input: An array of 2D image points.
@@ -142,77 +179,25 @@ bool Calibration::calibration(
 
   // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
   bool valid = check_input(points_3d, points_2d);
+  if (!valid){
+      return false;
+  }
   // TODO: construct the P matrix (so P * m = 0).
   int size_input_points = points_3d.size();
   Matrix P = construct_P(points_3d, points_2d, size_input_points);
-  std::cout << P << std::endl;
+
   // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
   Matrix M = construct_m(P, size_input_points);
-  std::cout << M << std::endl;
+
   /// Optional: you can check if your M is correct by applying M on the 3D points.
   /// If correct, the projected point should be very close to your input images points.
   proj_2D(M, points_3d, points_2d);
 
   // TODO: extract intrinsic parameters from M.
-
   // TODO: extract extrinsic parameters from M.
-  // Extract a1, a2, a3, and b from the matrix M
-  Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
-  Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
-  Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
-  Vector3D b = {M[0][3], M[1][3], M[2][3]};
+  extracting_parameters(M, fx, fy,cx, cy, s, R, t);
 
-  std::cout << "M: " << M << std::endl;
-  std::cout << "a1: " << a1 << std::endl;
-  std::cout << "a2: " << a2 << std::endl;
-  std::cout << "a3: " << a3 << std::endl;
-  std::cout << "b: " << b << std::endl;
-
-  // Calculate rho
-  double rho = 1 / length(a3);
-  std::cout<<"rho: "<<rho<<std::endl;
-  std::cout << "a3" << a3 << ", length: " << length(a3);
-  // Calculate intrinsic parameters
-  double theta = acos(-
-          dot(cross(a1,a3), cross(a2,a3))
-          /dot(distance(a1, a3),(distance(a2, a3))));
-  double alpha = rho * rho * distance(a1, a3)* sin(theta);
-  double beta = rho * rho * length(cross(a2, a3))* sin(theta);
-  std::cout<<"theta: "<<theta<<std::endl;
-  std::cout<<"alpha: "<<alpha<<std::endl;
-  std::cout<<"beta: "<<beta<<std::endl;
-
-  fx = alpha;
-  fy = beta/sin(theta);
-  s = - alpha / tan(theta);
-  cx = rho * rho * dot (a1, a3);
-  cy = rho * rho * dot (a2, a3);
-
-  std::cout<<"fx: "<<fx<<std::endl;
-  std::cout<<"fy: "<<fy<<std::endl;
-  std::cout <<"s: "<< s << std::endl;
-  std::cout<<"cx: "<<cx<<std::endl;
-  std::cout<<"cy: "<<cy<<std::endl;
-
-  // Calculate rotation matrix R
-  Vector3D r1 = cross(a2,a3)/length(cross(a2,a3));
-  Vector3D r3 = rho* a3;
-  Vector3D r2 = cross(r3, r1);
-  R.set_row(0, r1);
-  R.set_row(1,r2);
-  R.set_row(2,r3);
-  std::cout<<R<<std::endl;
-
-  Matrix33 K;
-  K.set(0,0,fx);
-  K.set(0,1,s);
-  K.set(0,2,cx);
-  K.set(1,1,fy);
-  K.set(1,2,cy);
-  K.set(2,2,1);
-  std::cout<<K<<std::endl;
-
-  return false;
+  return true;
 }
 
 
