@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code
+=======
+# Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code
+>>>>>>> parent of ccb95c2 (A)
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +38,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+<<<<<<< HEAD
   include("C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/3rd_party/cmake_install.cmake")
   include("C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/easy3d/cmake_install.cmake")
   include("C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/Calibration/cmake_install.cmake")
+=======
+  include("C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/3rd_party/cmake_install.cmake")
+  include("C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/easy3d/cmake_install.cmake")
+  include("C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/Calibration/cmake_install.cmake")
+>>>>>>> parent of ccb95c2 (A)
 
 endif()
 
@@ -48,5 +58,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> parent of ccb95c2 (A)
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

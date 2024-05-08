@@ -25,7 +25,6 @@
 #include "calibration.h"
 #include "matrix_algo.h"
 #include <cmath>
-#include "vector.h"
 
 using namespace easy3d;
 
@@ -139,29 +138,27 @@ bool Calibration::calibration(
         Matrix33& R, /// output: the 3x3 rotation matrix encoding camera rotation.
         Vector3D& t) /// output：a 3D vector encoding camera translation.
 {
+    //--------------------------------------------------------------------------------------------------------------
+    // implementation starts ...
 
-  // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
-  bool valid = check_input(points_3d, points_2d);
-  // TODO: construct the P matrix (so P * m = 0).
-  int size_input_points = points_3d.size();
-  Matrix P = construct_P(points_3d, points_2d, size_input_points);
-  std::cout << P << std::endl;
-  // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
-  Matrix M = construct_m(P, size_input_points);
-  std::cout << M << std::endl;
-  /// Optional: you can check if your M is correct by applying M on the 3D points.
-  /// If correct, the projected point should be very close to your input images points.
-  proj_2D(M, points_3d, points_2d);
+    // TODO: check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match)
+    bool valid = check_input(points_3d, points_2d);
+    // TODO: construct the P matrix (so P * m = 0).
+    int size_input_points = points_3d.size();
+    Matrix P = construct_P(points_3d, points_2d, size_input_points);
+    std::cout << P << std::endl;
+    // TODO: solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition.
+    Matrix M = construct_m(P, size_input_points);
+    std::cout << M << std::endl;
+    /// Optional: you can check if your M is correct by applying M on the 3D points.
+    /// If correct, the projected point should be very close to your input images points.
+    proj_2D(M, points_3d, points_2d);
 
-  // TODO: extract intrinsic parameters from M.
+    // TODO: extract intrinsic parameters from M.
 
-  // TODO: extract extrinsic parameters from M.
-  // Extract a1, a2, a3, and b from the matrix M
-  Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
-  Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
-  Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
-  Vector3D b = {M[0][3], M[1][3], M[2][3]};
+    // TODO: extract extrinsic parameters from M.
 
+<<<<<<< HEAD
   std::cout << "M: " << M << std::endl;
   std::cout << "a1: " << a1 << std::endl;
   std::cout << "a2: " << a2 << std::endl;
@@ -213,8 +210,10 @@ bool Calibration::calibration(
   std::cout<<K<<std::endl;
 
   return false;
+=======
+    return false;
+>>>>>>> parent of ccb95c2 (A)
 }
-
 
 
 

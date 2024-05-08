@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glfw
+=======
+# Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw
+>>>>>>> parent of ccb95c2 (A)
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +38,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+<<<<<<< HEAD
   include("C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/3rd_party/glfw/src/cmake_install.cmake")
+=======
+  include("C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/3rd_party/glfw/src/cmake_install.cmake")
+>>>>>>> parent of ccb95c2 (A)
 
 endif()
 

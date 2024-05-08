@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glog
+=======
+# Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glog
+>>>>>>> parent of ccb95c2 (A)
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
