@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/Calibration/calibration.cpp" "Calibration/CMakeFiles/Calibration.dir/calibration.cpp.obj" "gcc" "Calibration/CMakeFiles/Calibration.dir/calibration.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/Calibration/calibration_method.cpp" "Calibration/CMakeFiles/Calibration.dir/calibration_method.cpp.obj" "gcc" "Calibration/CMakeFiles/Calibration.dir/calibration_method.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/Calibration/main.cpp" "Calibration/CMakeFiles/Calibration.dir/main.cpp.obj" "gcc" "Calibration/CMakeFiles/Calibration.dir/main.cpp.obj.d"
-  "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/Calibration/matrix_algo.cpp" "Calibration/CMakeFiles/Calibration.dir/matrix_algo.cpp.obj" "gcc" "Calibration/CMakeFiles/Calibration.dir/matrix_algo.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/Calibration/calibration.cpp" "Calibration/CMakeFiles/Calibration.dir/calibration.cpp.obj" "msvc" "Calibration/CMakeFiles/Calibration.dir/calibration.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/Calibration/calibration_method.cpp" "Calibration/CMakeFiles/Calibration.dir/calibration_method.cpp.obj" "msvc" "Calibration/CMakeFiles/Calibration.dir/calibration_method.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/Calibration/main.cpp" "Calibration/CMakeFiles/Calibration.dir/main.cpp.obj" "msvc" "Calibration/CMakeFiles/Calibration.dir/main.cpp.obj.d"
+  "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/Calibration/matrix_algo.cpp" "Calibration/CMakeFiles/Calibration.dir/matrix_algo.cpp.obj" "msvc" "Calibration/CMakeFiles/Calibration.dir/matrix_algo.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

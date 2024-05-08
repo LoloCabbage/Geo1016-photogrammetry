@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../../lib/libeasy3d_viewer.a"
+  "../../lib/easy3d_viewer.lib"
 )

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/libeasy3d_util.a"
-  "../../lib/libeasy3d_util.pdb"
+  "../../lib/easy3d_util.lib"
+  "../../lib/easy3d_util.pdb"
   "CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj"
   "CMakeFiles/easy3d_util.dir/chrono_watch.cpp.obj.d"
   "CMakeFiles/easy3d_util.dir/dialogs.cpp.obj"

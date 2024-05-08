@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/lib3rd_glog.a"
-  "../../lib/lib3rd_glog.pdb"
+  "../../lib/3rd_glog.lib"
+  "../../lib/3rd_glog.pdb"
   "CMakeFiles/3rd_glog.dir/logging.cc.obj"
   "CMakeFiles/3rd_glog.dir/logging.cc.obj.d"
 )

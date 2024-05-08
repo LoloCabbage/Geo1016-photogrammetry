@@ -1,4 +1,4 @@
-# Install script for directory: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/src
+# Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glfw/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -30,10 +30,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-# Set default install directory permissions.
-if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/CLion 2023.2.2/bin/mingw/bin/objdump.exe")
 endif()
 

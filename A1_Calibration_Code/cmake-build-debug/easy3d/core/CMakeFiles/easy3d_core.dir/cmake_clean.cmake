@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../lib/libeasy3d_core.a"
-  "../../lib/libeasy3d_core.pdb"
+  "../../lib/easy3d_core.lib"
+  "../../lib/easy3d_core.pdb"
   "CMakeFiles/easy3d_core.dir/graph.cpp.obj"
   "CMakeFiles/easy3d_core.dir/graph.cpp.obj.d"
   "CMakeFiles/easy3d_core.dir/kdtree.cpp.obj"

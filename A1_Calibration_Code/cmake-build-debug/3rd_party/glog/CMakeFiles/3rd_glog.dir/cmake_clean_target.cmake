@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../../lib/lib3rd_glog.a"
+  "../../lib/3rd_glog.lib"
 )
