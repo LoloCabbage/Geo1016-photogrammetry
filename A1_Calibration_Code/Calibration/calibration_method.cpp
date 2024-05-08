@@ -162,15 +162,25 @@ bool Calibration::calibration(
   Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
   Vector3D b = {M[0][3], M[1][3], M[2][3]};
 
-  // Calculate rho
-  double norm_a3 = length(a3);
-  double rho = 1 / norm_a3;
+  std::cout << "M: " << M << std::endl;
+  std::cout << "a1: " << a1 << std::endl;
+  std::cout << "a2: " << a2 << std::endl;
+  std::cout << "a3: " << a3 << std::endl;
+  std::cout << "b: " << b << std::endl;
 
+  // Calculate rho
+  double rho = 1 / length(a3);
+  std::cout<<"rho: "<<rho<<std::endl;
+  std::cout << "a3" << a3 << ", length: " << length(a3);
   // Calculate intrinsic parameters
-  double theta = acos(- dot(cross(a1,a3), cross(a2,a3))
-          /dot(length(cross(a1, a3)),(length(cross(a2, a3)))));
-  double alpha = rho * rho * length(cross(a1, a3))* sin(theta);
+  double theta = acos(-
+          dot(cross(a1,a3), cross(a2,a3))
+          /dot(distance(a1, a3),(distance(a2, a3))));
+  double alpha = rho * rho * distance(a1, a3)* sin(theta);
   double beta = rho * rho * length(cross(a2, a3))* sin(theta);
+  std::cout<<"theta: "<<theta<<std::endl;
+  std::cout<<"alpha: "<<alpha<<std::endl;
+  std::cout<<"beta: "<<beta<<std::endl;
 
   fx = alpha;
   fy = beta/sin(theta);
@@ -178,10 +188,11 @@ bool Calibration::calibration(
   cx = rho * rho * dot (a1, a3);
   cy = rho * rho * dot (a2, a3);
 
-  std::cout<<fx<<std::endl;
-  std::cout<<fy<<std::endl;
-  std::cout<<cx<<std::endl;
-  std::cout<<cy<<std::endl;
+  std::cout<<"fx: "<<fx<<std::endl;
+  std::cout<<"fy: "<<fy<<std::endl;
+  std::cout <<"s: "<< s << std::endl;
+  std::cout<<"cx: "<<cx<<std::endl;
+  std::cout<<"cy: "<<cy<<std::endl;
 
   // Calculate rotation matrix R
   Vector3D r1 = cross(a2,a3)/length(cross(a2,a3));
