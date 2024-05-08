@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw
+# Install script for directory: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,9 +32,14 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "D:/CLion 2023.2.2/bin/mingw/bin/objdump.exe")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/3rd_party/glfw/src/cmake_install.cmake")
+  include("D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/3rd_party/glfw/src/cmake_install.cmake")
 
 endif()
 
