@@ -24,6 +24,7 @@
 
 #include "calibration.h"
 #include "matrix_algo.h"
+#include <cmath>
 
 using namespace easy3d;
 
@@ -121,7 +122,7 @@ void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std:
         rmse = rmse + (proj_2D[0][i]-points_2d[i][0])*(proj_2D[0][i]-points_2d[i][0]);
         rmse = rmse + (proj_2D[1][i]-points_2d[i][1])*(proj_2D[1][i]-points_2d[i][1]);
     }
-    rmse = rmse/points_3d.size()/2;
+    rmse = sqrt(rmse/points_3d.size()/2);
     std::cout << "The projected 2D coordinates" << proj_2D << std::endl;
     std::cout << "The rmse of projected data is :"<< rmse << std::endl;
 }
