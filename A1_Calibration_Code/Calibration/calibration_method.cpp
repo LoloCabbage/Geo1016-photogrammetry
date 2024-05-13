@@ -53,6 +53,7 @@ bool check_input(const std::vector<Vector3D>& points_3d, const std::vector<Vecto
     return true;
 }
 
+//// construct the P matrix
 Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d, int size_input_points){
     Matrix P(size_input_points * 2, 12);
     P.load_zero();
@@ -90,6 +91,7 @@ Matrix construct_P(const std::vector<Vector3D>& points_3d, const std::vector<Vec
     return P;
 }
 
+//// decompose the P matrix to get the M matrix
 Matrix construct_m(Matrix &P, int size_input_points){
     Matrix U(size_input_points*2, size_input_points*2);
     Matrix S(size_input_points*2, 12);
@@ -101,6 +103,7 @@ Matrix construct_m(Matrix &P, int size_input_points){
     return M;
 }
 
+//// project the 3D points to 2D points to check the correctness of M (optional)
 void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std::vector<Vector2D>& points_2d){
     Matrix homo_matrix(4,points_3d.size());
     for (int i = 0; i < points_3d.size(); ++i) {
@@ -124,45 +127,116 @@ void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std:
         rmse = rmse + (proj_2D[1][i]-points_2d[i][1])*(proj_2D[1][i]-points_2d[i][1]);
     }
     rmse = sqrt(rmse/points_3d.size()/2);
-    std::cout << "The projected 2D coordinates" << proj_2D << std::endl;
-    std::cout << "The rmse of projected data is :"<< rmse << std::endl;
+    std::cout << "The projected 2D coordinates " << proj_2D << std::endl;
+    std::cout << "The rmse between projected and sampling 2D data is :"<< rmse << std::endl;
 }
 
-void extracting_parameters(Matrix &M, double& fx, double& fy, double& cx, double& cy, double& s, Matrix33& R, Vector3D& t){
+//// calculate the rho (default to be positive)
+double calculate_rho (Matrix &M){
+    Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
+    double rho = 1 / length(a3);
+    return  rho;
+};
+
+//// test the rho with the first pair of 3D-2D coordinates
+double test_parameters(Matrix &M,Matrix33& R, Vector3D& t,
+                        double& fx, double& fy, double& cx, double& cy, double& s,double & rho,
+                        const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d) {
     Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
     Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
     Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
     Vector3D b = {M[0][3], M[1][3], M[2][3]};
 
-    double rho = 1 / length(a3);
     double theta = acos(-
-                                dot(cross(a1,a3), cross(a2,a3)) /
+                                dot(cross(a1, a3), cross(a2, a3)) /
                         (length(cross(a1, a3)) * length(cross(a2, a3))));
     double alpha = rho * rho * length(cross(a1, a3)) * sin(theta);
-    double beta = rho * rho * length(cross(a2, a3))* sin(theta);
+    double beta = rho * rho * length(cross(a2, a3)) * sin(theta);
 
     fx = alpha;
     fy = beta / sin(theta);
-    s = - alpha / tan(theta);
-    cx = rho * rho * dot (a1, a3);
-    cy = rho * rho * dot (a2, a3);
+    s = -alpha / tan(theta);
+    cx = rho * rho * dot(a1, a3);
+    cy = rho * rho * dot(a2, a3);
 
-    Vector3D r1 = cross(a2,a3) / length(cross(a2,a3));
+    Vector3D r1 = cross(a2, a3) / length(cross(a2, a3));
     Vector3D r3 = rho * a3;
     Vector3D r2 = cross(r3, r1);
     R.set_row(0, r1);
-    R.set_row(1,r2);
-    R.set_row(2,r3);
+    R.set_row(1, r2);
+    R.set_row(2, r3);
 
     Matrix33 K;
-    K.set(0,0,fx);
-    K.set(0,1,s);
-    K.set(0,2,cx);
-    K.set(1,1,fy);
-    K.set(1,2,cy);
-    K.set(2,2,1);
+    K.set(0, 0, fx);
+    K.set(0, 1, s);
+    K.set(0, 2, cx);
+    K.set(1, 1, fy);
+    K.set(1, 2, cy);
+    K.set(2, 2, 1);
 
-    t =  rho * inverse(K) * b;
+    t = rho * inverse(K) * b;
+    // convert the first 3D point to a matrix
+    Matrix p3d_matrix(4, 1);
+    p3d_matrix[0][0] = points_3d[0][0];
+    p3d_matrix[1][0] = points_3d[0][1];
+    p3d_matrix[2][0] = points_3d[0][2];
+    p3d_matrix[3][0] = 1;
+    Matrix34 Extrinsic;
+    //combine R and t to get the extrinsic matrix
+    for (int i = 0; i < 3; ++i) {
+        Extrinsic.set(i, 3, t[i]);
+        for (int j = 0; j < 3; ++j) {
+            Extrinsic.set(i, j, R[i][j]);
+        }
+    }
+    Matrix M1 = K * Extrinsic;
+
+    Matrix p_homo = M1 * p3d_matrix;
+    double u1 = p_homo[0][0] / p_homo[0][2];
+    double v1 = p_homo[0][1] / p_homo[0][2];
+
+    Vector2D p2d = points_2d[0];
+    double bia = sqrt((p2d.x() - u1) * (p2d.x() - u1) + (p2d.y() - v1) * (p2d.y() - v1));
+    return bia;
+}
+
+//// do the real parameter extraction
+void extract_parameters(Matrix &M,Matrix33& R, Vector3D& t,
+                       double& fx, double& fy, double& cx, double& cy, double& s,double & rho,
+                       const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d) {
+    Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
+    Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
+    Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
+    Vector3D b = {M[0][3], M[1][3], M[2][3]};
+
+    double theta = acos(-
+                                dot(cross(a1, a3), cross(a2, a3)) /
+                        (length(cross(a1, a3)) * length(cross(a2, a3))));
+    double alpha = rho * rho * length(cross(a1, a3)) * sin(theta);
+    double beta = rho * rho * length(cross(a2, a3)) * sin(theta);
+
+    fx = alpha;
+    fy = beta / sin(theta);
+    s = -alpha / tan(theta);
+    cx = rho * rho * dot(a1, a3);
+    cy = rho * rho * dot(a2, a3);
+
+    Vector3D r1 = cross(a2, a3) / length(cross(a2, a3));
+    Vector3D r3 = rho * a3;
+    Vector3D r2 = cross(r3, r1);
+    R.set_row(0, r1);
+    R.set_row(1, r2);
+    R.set_row(2, r3);
+
+    Matrix33 K;
+    K.set(0, 0, fx);
+    K.set(0, 1, s);
+    K.set(0, 2, cx);
+    K.set(1, 1, fy);
+    K.set(1, 2, cy);
+    K.set(2, 2, 1);
+
+    t = rho * inverse(K) * b;
 }
 
 bool Calibration::calibration(
@@ -195,8 +269,21 @@ bool Calibration::calibration(
 
   // TODO: extract intrinsic parameters from M.
   // TODO: extract extrinsic parameters from M.
-  extracting_parameters(M, fx, fy,cx, cy, s, R, t);
-
+  double rho1 = calculate_rho(M); // test both positive and negative rhos and chose the one with smaller bias
+  double rho2 = -calculate_rho(M);
+  double bia1 = test_parameters(M, R, t, fx, fy,cx, cy, s, rho1, points_3d, points_2d);
+  double bia2 = test_parameters(M, R, t, fx, fy,cx, cy, s, rho2, points_3d, points_2d);
+  double rho;
+    if (bia1 < bia2){
+        rho = rho1;
+        std::cout << "The rho should be positive." << std::endl;
+    }
+    else{
+        rho = rho2;
+        std::cout << "The rho should be negative." << std::endl;
+    }
+    extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
+    std::cout << "----------------------------------------------------------------" << std::endl;
   return true;
 }
 
