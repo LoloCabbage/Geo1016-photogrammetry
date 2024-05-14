@@ -138,6 +138,43 @@ double calculate_rho (Matrix &M){
     return  rho;
 };
 
+//// single 2D calibration pair
+struct single_pair {
+    double bia;
+    double u1;
+    double v1;
+};
+
+single_pair single_bias(Matrix &K,Matrix33& R, Vector3D& t,int& i,
+                   const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d){
+    // convert the 3D point to a matrix
+    Matrix p3d_matrix(4, 1);
+    p3d_matrix[0][0] = points_3d[i][0];
+    p3d_matrix[1][0] = points_3d[i][1];
+    p3d_matrix[2][0] = points_3d[i][2];
+    p3d_matrix[3][0] = 1;
+
+    Matrix34 Extrinsic;
+    //combine R and t to get the extrinsic matrix
+    for (int i = 0; i < 3; ++i) {
+        Extrinsic.set(i, 3, t[i]);
+        for (int j = 0; j < 3; ++j) {
+            Extrinsic.set(i, j, R[i][j]);
+        }
+    }
+    Matrix M1 = K * Extrinsic;
+
+    Matrix p_homo = M1 * p3d_matrix;
+
+    single_pair pb;
+    pb.u1 = p_homo[0][0] / p_homo[0][2];
+    pb.v1 = p_homo[0][1] / p_homo[0][2];
+
+    Vector2D p2d = points_2d[i];
+    pb.bia = (p2d.x() - pb.u1) * (p2d.x() - pb.u1) + (p2d.y() - pb.v1) * (p2d.y() - pb.v1);
+    return pb;
+};
+
 //// test the rho with the first pair of 3D-2D coordinates
 double test_parameters(Matrix &M,Matrix33& R, Vector3D& t,
                         double& fx, double& fy, double& cx, double& cy, double& s,double & rho,
@@ -175,29 +212,15 @@ double test_parameters(Matrix &M,Matrix33& R, Vector3D& t,
     K.set(2, 2, 1);
 
     t = rho * inverse(K) * b;
-    // convert the first 3D point to a matrix
-    Matrix p3d_matrix(4, 1);
-    p3d_matrix[0][0] = points_3d[0][0];
-    p3d_matrix[1][0] = points_3d[0][1];
-    p3d_matrix[2][0] = points_3d[0][2];
-    p3d_matrix[3][0] = 1;
-    Matrix34 Extrinsic;
-    //combine R and t to get the extrinsic matrix
-    for (int i = 0; i < 3; ++i) {
-        Extrinsic.set(i, 3, t[i]);
-        for (int j = 0; j < 3; ++j) {
-            Extrinsic.set(i, j, R[i][j]);
-        }
+
+    double bia = 0;
+
+    for (int i = 0; i < points_3d.size(); ++i) {
+        single_pair bias = single_bias(K, R, t,i, points_3d, points_2d);
+        bia = bia + bias.bia;
     }
-    Matrix M1 = K * Extrinsic;
-
-    Matrix p_homo = M1 * p3d_matrix;
-    double u1 = p_homo[0][0] / p_homo[0][2];
-    double v1 = p_homo[0][1] / p_homo[0][2];
-
-    Vector2D p2d = points_2d[0];
-    double bia = sqrt((p2d.x() - u1) * (p2d.x() - u1) + (p2d.y() - v1) * (p2d.y() - v1));
-    return bia;
+    double rmse = sqrt(bia/points_3d.size());
+    return rmse;
 }
 
 //// do the real parameter extraction
@@ -237,6 +260,14 @@ void extract_parameters(Matrix &M,Matrix33& R, Vector3D& t,
     K.set(2, 2, 1);
 
     t = rho * inverse(K) * b;
+
+    Matrix cali(2, points_3d.size());
+    for (int i = 0; i < points_3d.size(); ++i) {
+        single_pair bias = single_bias(K, R, t,i, points_3d, points_2d);
+        cali[0][i] = bias.u1;
+        cali[1][i] = bias.v1;
+    }
+    std::cout << "The calibration 2D coordinates " << cali << std::endl;
 }
 
 bool Calibration::calibration(
@@ -277,10 +308,12 @@ bool Calibration::calibration(
     if (bia1 < bia2){
         rho = rho1;
         std::cout << "The rho should be positive." << std::endl;
+        std::cout << "The calibration rmse is :"<< bia1 << std::endl;
     }
     else{
         rho = rho2;
         std::cout << "The rho should be negative." << std::endl;
+        std::cout << "The calibration rmse is :"<< bia2 << std::endl;
     }
     extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
     std::cout << "----------------------------------------------------------------" << std::endl;
