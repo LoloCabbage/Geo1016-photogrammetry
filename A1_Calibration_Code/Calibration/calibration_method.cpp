@@ -325,7 +325,7 @@ bool Calibration::calibration(
               extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
           }
       }
-    bool print_all_parameters = false;
+    bool print_all_parameters = true;
     if (print_all_parameters){
         std::cout << "\nDetermined camera calibration parameters: " << std::endl;
         std::cout << "rho: " << rho << std::endl;
