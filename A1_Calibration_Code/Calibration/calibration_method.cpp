@@ -118,17 +118,17 @@ void proj_2D (const Matrix &M,const std::vector<Vector3D>& points_3d, const std:
     }
 
     Matrix M_homo = M * homo_matrix;
-    Matrix proj_2D(2,points_3d.size());
+    Matrix projected_2D(2,points_3d.size());
     double rmse = 0;
     for (int i = 0; i < points_3d.size(); ++i) {
-        proj_2D[0][i] = M_homo[0][i]/M_homo[2][i];
-        proj_2D[1][i] = M_homo[1][i]/M_homo[2][i];
-        rmse = rmse + (proj_2D[0][i]-points_2d[i][0])*(proj_2D[0][i]-points_2d[i][0]);
-        rmse = rmse + (proj_2D[1][i]-points_2d[i][1])*(proj_2D[1][i]-points_2d[i][1]);
+        projected_2D[0][i] = M_homo[0][i]/M_homo[2][i];
+        projected_2D[1][i] = M_homo[1][i]/M_homo[2][i];
+        rmse = rmse + (projected_2D[0][i]-points_2d[i][0])*(projected_2D[0][i]-points_2d[i][0]);
+        rmse = rmse + (projected_2D[1][i]-points_2d[i][1])*(projected_2D[1][i]-points_2d[i][1]);
     }
     rmse = sqrt(rmse/points_3d.size()/2);
-    std::cout << "The projected 2D coordinates " << proj_2D << std::endl;
-    std::cout << "The rmse between projected and sampling 2D data is :"<< rmse << std::endl;
+    std::cout << "The projected 2D coordinates :\n" << projected_2D << std::endl;
+    std::cout << "The rmse between projected and sampling 2D data is: "<< rmse << std::endl;
 }
 
 //// calculate the rho (default to be positive)
@@ -146,7 +146,7 @@ struct single_pair {
 };
 
 single_pair single_bias(Matrix &K,Matrix33& R, Vector3D& t,int& i,
-                   const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d){
+                        const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d){
     // convert the 3D point to a matrix
     Matrix p3d_matrix(4, 1);
     p3d_matrix[0][0] = points_3d[i][0];
@@ -177,8 +177,8 @@ single_pair single_bias(Matrix &K,Matrix33& R, Vector3D& t,int& i,
 
 //// test the rho with the first pair of 3D-2D coordinates
 double test_parameters(Matrix &M,Matrix33& R, Vector3D& t,
-                        double& fx, double& fy, double& cx, double& cy, double& s,double & rho,
-                        const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d) {
+                       double& fx, double& fy, double& cx, double& cy, double& s,double & rho,
+                       const std::vector<Vector3D>& points_3d,const std::vector<Vector2D>& points_2d) {
     Vector3D a1 = {M[0][0], M[0][1], M[0][2]};
     Vector3D a2 = {M[1][0], M[1][1], M[1][2]};
     Vector3D a3 = {M[2][0], M[2][1], M[2][2]};
@@ -267,7 +267,6 @@ void extract_parameters(Matrix &M,Matrix33& R, Vector3D& t,
         cali[0][i] = bias.u1;
         cali[1][i] = bias.v1;
     }
-    std::cout << "The calibration 2D coordinates " << cali << std::endl;
 }
 
 bool Calibration::calibration(
@@ -300,22 +299,44 @@ bool Calibration::calibration(
 
   // TODO: extract intrinsic parameters from M.
   // TODO: extract extrinsic parameters from M.
-  double rho1 = calculate_rho(M); // test both positive and negative rhos and chose the one with smaller bias
-  double rho2 = -calculate_rho(M);
-  double bia1 = test_parameters(M, R, t, fx, fy,cx, cy, s, rho1, points_3d, points_2d);
-  double bia2 = test_parameters(M, R, t, fx, fy,cx, cy, s, rho2, points_3d, points_2d);
+  bool method1 = false;
+  //// Method 1
   double rho;
-    if (bia1 < bia2){
-        rho = rho1;
-        std::cout << "The rho should be positive." << std::endl;
-        std::cout << "The calibration rmse is :"<< bia1 << std::endl;
+  if (method1) {
+          double rho1 = calculate_rho(M); // test both positive and negative rhos and chose the one with smaller bias
+          double rho2 = -calculate_rho(M);
+          double bia1 = test_parameters(M, R, t, fx, fy, cx, cy, s, rho1, points_3d, points_2d);
+          double bia2 = test_parameters(M, R, t, fx, fy, cx, cy, s, rho2, points_3d, points_2d);
+          if (bia1 < bia2) {
+              rho = rho1;
+          } else {
+              rho = rho2;
+          }
+          std::cout << "rho: " << rho << std::endl;
+          std::cout << "t: " << t << std::endl;
+          extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
+      }
+    //// Method 2
+    else {
+          rho = calculate_rho(M);
+          extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
+          if (t[2] < 0){
+              rho = - rho;
+              extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
+          }
+      }
+    bool print_all_parameters = false;
+    if (print_all_parameters){
+        std::cout << "\nDetermined camera calibration parameters: " << std::endl;
+        std::cout << "rho: " << rho << std::endl;
+        std::cout << "fx: " << fx << std::endl;
+        std::cout << "fy: " << fy << std::endl;
+        std::cout << "cx: " << cx << std::endl;
+        std::cout << "cy: " << cy << std::endl;
+        std::cout << "s: " << s << std::endl;
+        std::cout << "t: " << t << std::endl;
+        std::cout << "R: " << R << std::endl;
     }
-    else{
-        rho = rho2;
-        std::cout << "The rho should be negative." << std::endl;
-        std::cout << "The calibration rmse is :"<< bia2 << std::endl;
-    }
-    extract_parameters(M, R, t, fx, fy, cx, cy, s, rho, points_3d, points_2d);
     std::cout << "----------------------------------------------------------------" << std::endl;
   return true;
 }
