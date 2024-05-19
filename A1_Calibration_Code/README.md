@@ -5,11 +5,11 @@
   
 # calibraion_method.cpp
 ## TO DO
-- [x] 1. check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match) - [x]
-- [ ] 2. construct the P matrix (so P * m = 0) 
-- [ ] 3. solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points. 
-- [ ] 4. extract intrinsic parameters from M.
-- [ ] 5. extract extrinsic parameters from M.
+- [x] 1. check if input is valid (e.g., number of correspondences >= 6, sizes of 2D/3D points must match) 
+- [x] 2. construct the P matrix (so P * m = 0) 
+- [x] 3. solve for M (the whole projection matrix, i.e., M = K * [R, t]) using SVD decomposition. Optional: you can check if your M is correct by applying M on the 3D points. If correct, the projected point should be very close to your input images points. 
+- [x] 4. extract intrinsic parameters from M.
+- [x] 5. extract extrinsic parameters from M.
 ## Implementation
 
 Use **bool Calibration::calibration** as the main function for *calibration_method.cpp*
