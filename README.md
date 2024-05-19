@@ -1,8 +1,9 @@
 # Triangulation.cpp
 Finish this function for reconstructing 3D geometry from corresponding image points.
 # To Do List
-- [x] 4. extract intrinsic parameters from M.
-- [x] 5. extract extrinsic parameters from M.
+- [x] 1. check if the input is valid
+- [ ] 2. Estimate relative pose of two views (F->E->R t)
+- [ ] 3. Reconstruct 3D points. (triangulate a pair of image points)
 # Related functions and example code given by the teacher
 **Functions for linear method**
 
