@@ -5,5 +5,7 @@ Finish this function for reconstructing 3D geometry from corresponding image poi
 - [x] 5. extract extrinsic parameters from M.
 # Related functions and example code given by teacher
 *Triangulation/matrix.h*  Matrices of arbitrary dimensions and related functions
+
 *Triangulation/vector.h*  Vectors of arbitrary dimensions and related functions
+
 *Triangulation/matrix_algo.h*  Determinant, inverse, SVD, linear least-squares"
