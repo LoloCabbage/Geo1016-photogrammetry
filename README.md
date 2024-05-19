@@ -4,6 +4,16 @@ Finish this function for reconstructing 3D geometry from corresponding image poi
 - [x] 1. check if the input is valid
 - [ ] 2. Estimate relative pose of two views (F->E->R t)
 - [ ] 3. Reconstruct 3D points. (triangulate a pair of image points)
+# !Notice
+Don't forget to
+- write your recovered 3D points into 'points_3d' (so the viewer can visualize the 3D points for you);
+- write the recovered relative pose into R and t (the view will be updated as seen from the 2nd camera, which can help you check if R and t are correct).
+You must return either 'true' or 'false' to indicate whether the triangulation was successful (so the viewer will be notified to visualize the 3D points and update the view).
+
+There are a few cases you should return 'false' instead, for example:
+- function not implemented yet;
+- input not valid (e.g., not enough points, point numbers don't match);
+- encountered failure in any step.
 # Related functions and example code given by the teacher
 **Functions for linear method**
 
