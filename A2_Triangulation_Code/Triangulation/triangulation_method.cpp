@@ -141,7 +141,6 @@ Matrix F (const std::vector<Vector2D>& normal_points_0, const std::vector<Vector
     svd_decompose(F_matrix, U_F, D_F, V_F);
     D_F.set(2, 2, 0);
     F_matrix = U_F * D_F * V_F.transpose(); //// TRANSPOSE OR NOT?? to CHECK
-    std::cout << "F_matrix: " << F_matrix << std::endl;
     return F_matrix;
 }
 
@@ -149,6 +148,37 @@ Matrix F (const std::vector<Vector2D>& normal_points_0, const std::vector<Vector
 Matrix denormalize(const Matrix& F, const Matrix& T0, const Matrix& T1){
     return T1.transpose() * F * T0;
 }
+
+//// Compute essential matrix E
+Matrix compute_matrix_E(double fx, double fy, double cx, double cy, double s, Matrix &F){
+    Matrix33 K;
+    K(0,0) = fx;
+    K(0,1) = s;
+    K(0,2) = cx;
+    K(1,1) = fy;
+    K(1,2) = cy;
+    K(2,2) = 1;
+    Matrix E = K.transpose() * F * K;
+    return K;
+}
+
+//// Recover the translation vector and rotation matrix
+void recover_R_and_T(Matrix E, Matrix33 &R, Vector3D &t){
+    Matrix33 W;
+    W(0,1) = -1;
+    W(1,0) = 1;
+    W(2,2) = 1;
+
+    Matrix33 Z;
+    Z(0,1) = 1;
+    Z(1,0) = -1;
+
+    Matrix33 U;
+    Matrix33 D;
+    Matrix33 V;
+    svd_decompose(E, U, D, V);
+}
+
 
 bool Triangulation::triangulation(
         double fx, double fy,     /// input: the focal lengths (same for both cameras)
@@ -178,8 +208,11 @@ bool Triangulation::triangulation(
     Matrix F_denormalized = denormalize(F_matrix, norm_data_0.T, norm_data_1.T);
 
     // TODO: - compute the essential matrix E;
+    Matrix E = compute_matrix_E(fx, fy, cx, cy, s, F_denormalized);
 
     // TODO: - recover rotation R and t.
+    recover_R_and_T(E, R, t);
+
 
     // TODO: Reconstruct 3D points. The main task is
     //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
