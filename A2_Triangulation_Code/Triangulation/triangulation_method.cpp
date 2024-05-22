@@ -149,17 +149,19 @@ Matrix denormalize(const Matrix& F, const Matrix& T0, const Matrix& T1){
     return T1.transpose() * F * T0;
 }
 
-//// Compute essential matrix E
-Matrix compute_matrix_E(double fx, double fy, double cx, double cy, double s, Matrix &F){
-    Matrix33 K;
+void construct_matrix_K(Matrix33 &K, double fx, double fy, double cx, double cy, double s){
     K(0,0) = fx;
     K(0,1) = s;
     K(0,2) = cx;
     K(1,1) = fy;
     K(1,2) = cy;
     K(2,2) = 1;
+}
+
+//// Compute essential matrix E
+Matrix compute_matrix_E(Matrix33 K, Matrix &F){
     Matrix E = K.transpose() * F * K;
-    return K;
+    return E;
 }
 
 //// Recover the translation vector and rotation matrix
@@ -182,6 +184,61 @@ void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, V
     t2[0] = U(0,2);
     t2[1] = U(1,2);
     t2[2] = U(2,2);
+}
+
+void triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
+                      const std::vector<Vector2D> &points_1,
+                      Matrix33 &R, Vector3D &t){
+    Matrix M(3,4);
+    M(0,0) = R(0,0);
+    M(0,1) = R(0,1);
+    M(0,2) = R(0,2);
+    M(1,0) = R(1,0);
+    M(1,1) = R(1,1);
+    M(1,2) = R(1,2);
+    M(2,0) = R(2,0);
+    M(2,1) = R(2,1);
+    M(2,2) = R(2,2);
+    M(0,3) = t[0];
+    M(1,3) = t[1];
+    M(2,3) = t[2];
+
+    Matrix m1(1,4,{M(0,0), M(0,1), M(0,2), M(0,3)});
+    Matrix m2(1,4,{M(1,0), M(1,1), M(1,2), M(1,3)});
+    Matrix m3(1,4,{M(2,0), M(2,1), M(2,2), M(2,3)});
+
+    int amount_of_points = points_0.size();
+    for (int pt_index = 0; pt_index < amount_of_points; pt_index++) {
+        double x = points_0[pt_index][0];
+        double y = points_0[pt_index][1];
+        double x_prime = points_1[pt_index][0];
+        double y_prime = points_1[pt_index][1];
+        Matrix44 A;
+
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                if (i == 0) {
+                    A(i, j) = x * m3(0, j) - m1(0, j);
+                } else if (i == 1) {
+                    A(i, j) = y * m3(0, j) - m2(0, j);
+                } else if (i == 2) {
+                    A(i, j) = x_prime * m3(0, j) - m1(0, j);
+                } else if (i == 3) {
+                    A(i, j) = y_prime * m3(0, j) - m2(0, j);
+                }
+            }
+        }
+        Matrix44 U;
+        Matrix S(4,3);
+        Matrix33 V_transpose;
+        svd_decompose(A, U, S, V_transpose);
+        int numCols = V_transpose.cols();
+        Vector4D P = V_transpose.get_column(numCols - 1);
+
+        // Next step: Convert homogeneous coordinates to 3D point
+
+    }
+
 }
 
 
@@ -213,13 +270,15 @@ bool Triangulation::triangulation(
     Matrix F_denormalized = denormalize(F_matrix, norm_data_0.T, norm_data_1.T);
 
     // TODO: - compute the essential matrix E;
-    Matrix E = compute_matrix_E(fx, fy, cx, cy, s, F_denormalized);
+    Matrix33 K;
+    construct_matrix_K(K, fx, fy, cx, cy, s);
+    Matrix E = compute_matrix_E(K, F_denormalized);
 
     // TODO: - recover rotation R and t.
     Matrix33 R1, R2;
     Vector3D t1, t2;
     find_possible_R_and_t(E, R1, R2, t1, t2);
-
+    triangulate_func(K, points_0, points_1, R1, t1);
 
     // TODO: Reconstruct 3D points. The main task is
     //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
