@@ -163,20 +163,25 @@ Matrix compute_matrix_E(double fx, double fy, double cx, double cy, double s, Ma
 }
 
 //// Recover the translation vector and rotation matrix
-void recover_R_and_T(Matrix E, Matrix33 &R, Vector3D &t){
+void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, Vector3D t2){
     Matrix33 W;
     W(0,1) = -1;
     W(1,0) = 1;
     W(2,2) = 1;
 
-    Matrix33 Z;
-    Z(0,1) = 1;
-    Z(1,0) = -1;
-
     Matrix33 U;
     Matrix33 D;
-    Matrix33 V;
-    svd_decompose(E, U, D, V);
+    Matrix33 V_transpose;
+    svd_decompose(E, U, D, V_transpose);
+
+    R1 = determinant(U * W * V_transpose) * U * W * V_transpose;
+    R2 = determinant(U * W.transpose() * V_transpose) * U * W.transpose() * V_transpose;
+    t1[0] = U(0,2);
+    t1[1] = U(1,2);
+    t1[2] = U(2,2);
+    t2[0] = U(0,2);
+    t2[1] = U(1,2);
+    t2[2] = U(2,2);
 }
 
 
@@ -211,7 +216,9 @@ bool Triangulation::triangulation(
     Matrix E = compute_matrix_E(fx, fy, cx, cy, s, F_denormalized);
 
     // TODO: - recover rotation R and t.
-    recover_R_and_T(E, R, t);
+    Matrix33 R1, R2;
+    Vector3D t1, t2;
+    find_possible_R_and_t(E, R1, R2, t1, t2);
 
 
     // TODO: Reconstruct 3D points. The main task is
