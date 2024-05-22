@@ -149,6 +149,7 @@ Matrix denormalize(const Matrix& F, const Matrix& T0, const Matrix& T1){
     return T1.transpose() * F * T0;
 }
 
+//// construct the matrix K
 void construct_matrix_K(Matrix33 &K, double fx, double fy, double cx, double cy, double s){
     K(0,0) = fx;
     K(0,1) = s;
@@ -166,7 +167,7 @@ Matrix compute_matrix_E(Matrix33 K, Matrix &F){
 
 //// Recover the translation vector and rotation matrix
 void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, Vector3D t2){
-    Matrix33 W;
+    Matrix33 W; // skew-symmetric matrix
     W(0,1) = -1;
     W(1,0) = 1;
     W(2,2) = 1;
@@ -186,6 +187,7 @@ void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, V
     t2[2] = U(2,2);
 }
 
+//// Triangulate a pair of image points
 void triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
                       const std::vector<Vector2D> &points_1,
                       Matrix33 &R, Vector3D &t){
@@ -241,6 +243,33 @@ void triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
 
 }
 
+//// non-linear optimization
+class TriangulationObjective : public Objective_LM {
+public:
+    std::vector<Vector2D> p, p_prime;  // 2D points;
+    Matrix M,Mp; // camera parameter matrices
+
+    // constructor
+    TriangulationObjective(const std::vector<Vector2D> &points0, const std::vector<Vector2D> &points1,
+                           const Matrix &M0,
+                           const Matrix &M1)
+            : Objective_LM(points0.size()*2, 3), p(points0), p_prime(points1), M(M0), Mp(M1) {}
+    int evaluate(const double *x, double *fvec) override {
+        double P_data[4] = {x[0], x[1], x[2], 1.0};
+        Matrix P(4,1,P_data);
+        for (int i = 0; i < p.size(); ++i) {
+            Matrix projected_p = M * P;
+            Matrix projected_p_prime = Mp * P;
+            projected_p /= projected_p(2,0);
+            projected_p_prime /= projected_p_prime(2,0);
+            for (int j = 0; j < 2; ++j) {
+                fvec[2*i + j] = projected_p(j,0) - p[i][j];
+                fvec[p.size() + 2*i + j] = projected_p_prime(j,0) - p_prime[i][j];
+            }
+        }
+        return 0;
+    }
+};
 
 bool Triangulation::triangulation(
         double fx, double fy,     /// input: the focal lengths (same for both cameras)
@@ -272,16 +301,25 @@ bool Triangulation::triangulation(
     // TODO: - compute the essential matrix E;
     Matrix33 K;
     construct_matrix_K(K, fx, fy, cx, cy, s);
+    std::cout << "K: " << K << std::endl;
     Matrix E = compute_matrix_E(K, F_denormalized);
 
     // TODO: - recover rotation R and t.
-    Matrix33 R1, R2;
-    Vector3D t1, t2;
-    find_possible_R_and_t(E, R1, R2, t1, t2);
-    triangulate_func(K, points_0, points_1, R1, t1);
+//    Matrix33 R1, R2;
+//    Vector3D t1, t2;
+//    find_possible_R_and_t(E, R1, R2, t1, t2);
+//    triangulate_func(K, points_0, points_1, R1, t1);
 
     // TODO: Reconstruct 3D points. The main task is
     //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
+
+    //nonlinear optimization
+//    Matrix M0,M1;
+//    TriangulationObjective obj(points_0, points_1, M0, M1);
+//    std::vector<double> x = {0.0, 0.0, 0.0}; // initial guess
+//    Optimizer_LM lm;
+//    bool status = lm.optimize(&obj, x);
+//    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
 
 
     return points_3d.size() > 0;
