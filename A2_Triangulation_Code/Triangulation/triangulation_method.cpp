@@ -166,7 +166,7 @@ Matrix compute_matrix_E(Matrix33 K, Matrix &F){
 }
 
 //// Recover the translation vector and rotation matrix
-void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, Vector3D t2){
+void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, Vector3D &t2){
     Matrix33 W; // skew-symmetric matrix
     W(0,1) = -1;
     W(1,0) = 1;
@@ -182,34 +182,61 @@ void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D t1, V
     t1[0] = U(0,2);
     t1[1] = U(1,2);
     t1[2] = U(2,2);
-    t2[0] = U(0,2);
-    t2[1] = U(1,2);
-    t2[2] = U(2,2);
+    t2[0] = -U(0,2);
+    t2[1] = -U(1,2);
+    t2[2] = -U(2,2);
 }
 
 //// Triangulate a pair of image points
-void triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
+int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
                       const std::vector<Vector2D> &points_1,
-                      Matrix33 &R, Vector3D &t){
+                      Matrix33 &R_prime, Vector3D &t_prime){
+
+    Matrix R = Matrix::identity(3,3);
+    Vector3D t;
+    Matrix Rt(3,4);
+    Rt(0,0) = R(0,0);
+    Rt(0,1) = R(0,1);
+    Rt(0,2) = R(0,2);
+    Rt(1,0) = R(1,0);
+    Rt(1,1) = R(1,1);
+    Rt(1,2) = R(1,2);
+    Rt(2,0) = R(2,0);
+    Rt(2,1) = R(2,1);
+    Rt(2,2) = R(2,2);
+    Rt(0,3) = t[0];
+    Rt(1,3) = t[1];
+    Rt(2,3) = t[2];
     Matrix M(3,4);
-    M(0,0) = R(0,0);
-    M(0,1) = R(0,1);
-    M(0,2) = R(0,2);
-    M(1,0) = R(1,0);
-    M(1,1) = R(1,1);
-    M(1,2) = R(1,2);
-    M(2,0) = R(2,0);
-    M(2,1) = R(2,1);
-    M(2,2) = R(2,2);
-    M(0,3) = t[0];
-    M(1,3) = t[1];
-    M(2,3) = t[2];
+    M = K * Rt;
 
     Matrix m1(1,4,{M(0,0), M(0,1), M(0,2), M(0,3)});
     Matrix m2(1,4,{M(1,0), M(1,1), M(1,2), M(1,3)});
     Matrix m3(1,4,{M(2,0), M(2,1), M(2,2), M(2,3)});
 
+    Matrix Rt_prime(3,4);
+    Rt_prime(0,0) = R_prime(0,0);
+    Rt_prime(0,1) = R_prime(0,1);
+    Rt_prime(0,2) = R_prime(0,2);
+    Rt_prime(1,0) = R_prime(1,0);
+    Rt_prime(1,1) = R_prime(1,1);
+    Rt_prime(1,2) = R_prime(1,2);
+    Rt_prime(2,0) = R_prime(2,0);
+    Rt_prime(2,1) = R_prime(2,1);
+    Rt_prime(2,2) = R_prime(2,2);
+    Rt_prime(0,3) = t_prime[0];
+    Rt_prime(1,3) = t_prime[1];
+    Rt_prime(2,3) = t_prime[2];
+
+    Matrix M_prime(3,4);
+    M_prime = K * Rt_prime;
+
+    Matrix m1_prime(1,4,{M_prime(0,0), M_prime(0,1), M_prime(0,2), M_prime(0,3)});
+    Matrix m2_prime(1,4,{M_prime(1,0), M_prime(1,1), M_prime(1,2), M_prime(1,3)});
+    Matrix m3_prime(1,4,{M_prime(2,0), M_prime(2,1), M_prime(2,2), M_prime(2,3)});
+
     int amount_of_points = points_0.size();
+    int points_in_front_of_both_cameras = 0;
     for (int pt_index = 0; pt_index < amount_of_points; pt_index++) {
         double x = points_0[pt_index][0];
         double y = points_0[pt_index][1];
@@ -217,30 +244,67 @@ void triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
         double y_prime = points_1[pt_index][1];
         Matrix44 A;
 
-        for (int i = 0; i < 4; ++i) {
-            for (int j = 0; j < 4; ++j) {
-                if (i == 0) {
-                    A(i, j) = x * m3(0, j) - m1(0, j);
-                } else if (i == 1) {
-                    A(i, j) = y * m3(0, j) - m2(0, j);
-                } else if (i == 2) {
-                    A(i, j) = x_prime * m3(0, j) - m1(0, j);
-                } else if (i == 3) {
-                    A(i, j) = y_prime * m3(0, j) - m2(0, j);
-                }
-            }
-        }
-        Matrix44 U;
-        Matrix S(4,3);
-        Matrix33 V_transpose;
+        A(0,0) = x * m3(0,0) - m1(0,0);
+        A(0,1) = x * m3(0,1) - m1(0,1);
+        A(0,2) = x * m3(0,2) - m1(0,2);
+        A(0,3) = x * m3(0,3) - m1(0,3);
+
+        A(1,0) = y * m3(0,0) - m2(0,0);
+        A(1,1) = y * m3(0,1) - m2(0,1);
+        A(1,2) = y * m3(0,2) - m2(0,2);
+        A(1,3) = y * m3(0,3) - m2(0,3);
+
+        A(2,0) = x_prime * m3_prime(0,0) - m1_prime(0,0);
+        A(2,1) = x_prime * m3_prime(0,1) - m1_prime(0,1);
+        A(2,2) = x_prime * m3_prime(0,2) - m1_prime(0,2);
+        A(2,3) = x_prime * m3_prime(0,3) - m1_prime(0,3);
+
+        A(3,0) = y_prime * m3_prime(0,0) - m2_prime(0,0);
+        A(3,1) = y_prime * m3_prime(0,1) - m2_prime(0,1);
+        A(3,2) = y_prime * m3_prime(0,2) - m2_prime(0,2);
+        A(3,3) = y_prime * m3_prime(0,3) - m2_prime(0,3);
+
+        Matrix44 U, S, V_transpose;
+
         svd_decompose(A, U, S, V_transpose);
         int numCols = V_transpose.cols();
         Vector4D P = V_transpose.get_column(numCols - 1);
+        Vector3D P_homo = {P[0]/P[3], P[1]/P[3], P[2]/P[3]};
 
-        // Next step: Convert homogeneous coordinates to 3D point
+        // Transform the 3D point to the camera coordinate system of the first camera (camera 0)
+        Vector3D P_cam0 = R * P_homo + t;
+        // Transform the 3D point to the camera coordinate system of the second camera (camera 1)
+        Vector3D P_cam1 = R_prime * P_homo + t_prime;
+
+        if (P_cam0[2] > 0 && P_cam1[2] > 0) {
+            points_in_front_of_both_cameras ++;
+        }
 
     }
+    return points_in_front_of_both_cameras;
+}
 
+//// Find the correct (R,t) pair which has the most 3D points lying in front of both cameras
+void get_correct_R_and_t(Matrix33 &R, Vector3D &t, Matrix33 &K, const std::vector<Vector2D> points_0,
+                const std::vector<Vector2D> points_1, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, Vector3D &t2){
+    int sol1 = triangulate_func(K, points_0, points_1, R1, t1);
+    int sol2 = triangulate_func(K, points_0, points_1, R1, t2);
+    int sol3 = triangulate_func(K, points_0, points_1, R2, t1);
+    int sol4 = triangulate_func(K, points_0, points_1, R2, t2);
+    int max_solution = std::max({sol1, sol2, sol3, sol4});
+    if (max_solution == sol1) {
+        R = R1;
+        t = t1;
+    } else if (max_solution == sol2) {
+        R = R1;
+        t = t2;
+    } else if (max_solution == sol3) {
+        R = R2;
+        t = t1;
+    } else {
+        R = R2;
+        t = t2;
+    }
 }
 
 //// non-linear optimization
@@ -305,10 +369,12 @@ bool Triangulation::triangulation(
     Matrix E = compute_matrix_E(K, F_denormalized);
 
     // TODO: - recover rotation R and t.
-//    Matrix33 R1, R2;
-//    Vector3D t1, t2;
-//    find_possible_R_and_t(E, R1, R2, t1, t2);
-//    triangulate_func(K, points_0, points_1, R1, t1);
+    Matrix33 R1, R2;
+    Vector3D t1, t2;
+    find_possible_R_and_t(E, R1, R2, t1, t2);
+    get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2);
+    std::cout << "R: " << R << std::endl;
+    std::cout << "t: " << t << std::endl;
 
     // TODO: Reconstruct 3D points. The main task is
     //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
