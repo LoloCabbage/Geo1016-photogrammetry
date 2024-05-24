@@ -107,29 +107,29 @@ normalization normalize(const std::vector<Vector2D>& points){
 //// generate the fundamental matrix
 Matrix F (const std::vector<Vector2D>& normal_points_0, const std::vector<Vector2D>& normal_points_1){
     int n = normal_points_0.size();
-    Matrix A(n, 9);
+    Matrix W(n, 9);
     for (int i = 0; i < n; i++) {
         double x0 = normal_points_0[i].x();
         double y0 = normal_points_0[i].y();
         double x1 = normal_points_1[i].x();
         double y1 = normal_points_1[i].y();
 
-        A(i, 0) = x0 * x1;
-        A(i, 1) = y0 * x1;
-        A(i, 2) = x1;
-        A(i, 3) = x0 * y1;
-        A(i, 4) = y0 * y1;
-        A(i, 5) = y1;
-        A(i, 6) = x0;
-        A(i, 7) = y0;
-        A(i, 8) = 1;
+        W(i, 0) = x0 * x1;
+        W(i, 1) = y0 * x1;
+        W(i, 2) = x1;
+        W(i, 3) = x0 * y1;
+        W(i, 4) = y0 * y1;
+        W(i, 5) = y1;
+        W(i, 6) = x0;
+        W(i, 7) = y0;
+        W(i, 8) = 1;
     }
 
     // svd decomposition
     Matrix U(n, n);
     Matrix D(n, 9);
     Matrix V(9, 9);
-    svd_decompose(A, U, D, V);
+    svd_decompose(W, U, D, V);
     int numCols = V.cols();
     Vector F = V.get_column(numCols - 1);
     Matrix F_matrix(3, 3, F.data());
@@ -369,5 +369,5 @@ bool Triangulation::triangulation(
 //    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
 
 
-    return points_3d.size() > 0;
+    return true;
 }
