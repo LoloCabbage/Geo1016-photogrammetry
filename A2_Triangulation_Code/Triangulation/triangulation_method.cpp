@@ -187,6 +187,19 @@ void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, 
     t2[2] = -U(2,2);
 }
 
+
+//// construct M
+void construct_M(Matrix33 K, Matrix R, Vector3D t, Matrix &M){
+    Matrix Rt(3,4);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            Rt(i,j) = R(i,j);
+        }
+    }
+    Rt.set_column(3, t);
+    M = K * Rt;
+}
+
 //// Triangulate a pair of image points
 int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
                       const std::vector<Vector2D> &points_1,
@@ -194,47 +207,23 @@ int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
 
     Matrix R = Matrix::identity(3,3);
     Vector3D t;
-    Matrix Rt(3,4);
-    Rt(0,0) = R(0,0);
-    Rt(0,1) = R(0,1);
-    Rt(0,2) = R(0,2);
-    Rt(1,0) = R(1,0);
-    Rt(1,1) = R(1,1);
-    Rt(1,2) = R(1,2);
-    Rt(2,0) = R(2,0);
-    Rt(2,1) = R(2,1);
-    Rt(2,2) = R(2,2);
-    Rt(0,3) = t[0];
-    Rt(1,3) = t[1];
-    Rt(2,3) = t[2];
+    // Construct the projection matrix for the first camera
     Matrix M(3,4);
-    M = K * Rt;
+    construct_M(K, R, t, M);
 
     Matrix m1(1,4,{M(0,0), M(0,1), M(0,2), M(0,3)});
     Matrix m2(1,4,{M(1,0), M(1,1), M(1,2), M(1,3)});
     Matrix m3(1,4,{M(2,0), M(2,1), M(2,2), M(2,3)});
 
-    Matrix Rt_prime(3,4);
-    Rt_prime(0,0) = R_prime(0,0);
-    Rt_prime(0,1) = R_prime(0,1);
-    Rt_prime(0,2) = R_prime(0,2);
-    Rt_prime(1,0) = R_prime(1,0);
-    Rt_prime(1,1) = R_prime(1,1);
-    Rt_prime(1,2) = R_prime(1,2);
-    Rt_prime(2,0) = R_prime(2,0);
-    Rt_prime(2,1) = R_prime(2,1);
-    Rt_prime(2,2) = R_prime(2,2);
-    Rt_prime(0,3) = t_prime[0];
-    Rt_prime(1,3) = t_prime[1];
-    Rt_prime(2,3) = t_prime[2];
-
+    // Construct the projection matrix for the second camera
     Matrix M_prime(3,4);
-    M_prime = K * Rt_prime;
+    construct_M(K, R_prime, t_prime, M_prime);
 
     Matrix m1_prime(1,4,{M_prime(0,0), M_prime(0,1), M_prime(0,2), M_prime(0,3)});
     Matrix m2_prime(1,4,{M_prime(1,0), M_prime(1,1), M_prime(1,2), M_prime(1,3)});
     Matrix m3_prime(1,4,{M_prime(2,0), M_prime(2,1), M_prime(2,2), M_prime(2,3)});
 
+    // Triangulate the 3D points
     int amount_of_points = points_0.size();
     int points_in_front_of_both_cameras = 0;
     for (int pt_index = 0; pt_index < amount_of_points; pt_index++) {
@@ -243,34 +232,20 @@ int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
         double x_prime = points_1[pt_index][0];
         double y_prime = points_1[pt_index][1];
         Matrix44 A;
-
-        A(0,0) = x * m3(0,0) - m1(0,0);
-        A(0,1) = x * m3(0,1) - m1(0,1);
-        A(0,2) = x * m3(0,2) - m1(0,2);
-        A(0,3) = x * m3(0,3) - m1(0,3);
-
-        A(1,0) = y * m3(0,0) - m2(0,0);
-        A(1,1) = y * m3(0,1) - m2(0,1);
-        A(1,2) = y * m3(0,2) - m2(0,2);
-        A(1,3) = y * m3(0,3) - m2(0,3);
-
-        A(2,0) = x_prime * m3_prime(0,0) - m1_prime(0,0);
-        A(2,1) = x_prime * m3_prime(0,1) - m1_prime(0,1);
-        A(2,2) = x_prime * m3_prime(0,2) - m1_prime(0,2);
-        A(2,3) = x_prime * m3_prime(0,3) - m1_prime(0,3);
-
-        A(3,0) = y_prime * m3_prime(0,0) - m2_prime(0,0);
-        A(3,1) = y_prime * m3_prime(0,1) - m2_prime(0,1);
-        A(3,2) = y_prime * m3_prime(0,2) - m2_prime(0,2);
-        A(3,3) = y_prime * m3_prime(0,3) - m2_prime(0,3);
+        // Construct the matrix A
+        for (int i = 0; i < 4; i++) {
+            A(0, i) = x * m3(0, i) - m1(0, i);
+            A(1, i) = y * m3(0, i) - m2(0, i);
+            A(2, i) = x_prime * m3_prime(0, i) - m1_prime(0, i);
+            A(3, i) = y_prime * m3_prime(0, i) - m2_prime(0, i);
+        }
 
         Matrix44 U, S, V_transpose;
-
         svd_decompose(A, U, S, V_transpose);
         int numCols = V_transpose.cols();
+        // Get the 3D point
         Vector4D P = V_transpose.get_column(numCols - 1);
         Vector3D P_homo = {P[0]/P[3], P[1]/P[3], P[2]/P[3]};
-
         // Transform the 3D point to the camera coordinate system of the first camera (camera 0)
         Vector3D P_cam0 = R * P_homo + t;
         // Transform the 3D point to the camera coordinate system of the second camera (camera 1)
@@ -306,6 +281,7 @@ void get_correct_R_and_t(Matrix33 &R, Vector3D &t, Matrix33 &K, const std::vecto
         t = t2;
     }
 }
+
 
 //// non-linear optimization
 class TriangulationObjective : public Objective_LM {
@@ -380,10 +356,15 @@ bool Triangulation::triangulation(
     //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
 
     //nonlinear optimization
-//    Matrix M0,M1;
-//    TriangulationObjective obj(points_0, points_1, M0, M1);
-//    std::vector<double> x = {0.0, 0.0, 0.0}; // initial guess
-//    Optimizer_LM lm;
+    Matrix34 M0, M;
+    Matrix R0 = Matrix::identity(3,3);
+    Vector3D t0;
+
+    construct_M(K, R0, t0, M0);
+    construct_M(K, R, t, M);
+    TriangulationObjective obj(points_0, points_1, M0, M);
+    std::vector<double> x = {0.0, 0.0, 0.0}; // initial guess
+    Optimizer_LM lm;
 //    bool status = lm.optimize(&obj, x);
 //    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
 
