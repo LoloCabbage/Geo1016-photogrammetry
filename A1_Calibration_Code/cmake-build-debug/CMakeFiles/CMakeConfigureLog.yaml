@@ -4,403 +4,633 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
       - "CMakeLists.txt:4 (project)"
     message: |
-      The system is: Windows - 10.0.22631 - AMD64
+      The system is: Windows - 10.0.19045 - AMD64
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:4 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe 
+      Compiler: D:/CLion 2023.2.2/bin/mingw/bin/gcc.exe 
       Build flags: 
       Id flags:  
       
       The output was:
       0
-      用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.37.32825 版
-      版权所有(C) Microsoft Corporation。保留所有权利。
-      
-      CMakeCCompilerId.c
-      Microsoft (R) Incremental Linker Version 14.37.32825.0
-      Copyright (C) Microsoft Corporation.  All rights reserved.
-      
-      /out:CMakeCCompilerId.exe 
-      CMakeCCompilerId.obj 
       
       
-      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
       
-      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
-      
-      The C compiler identification is MSVC, found in:
-<<<<<<< HEAD
-        C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
-=======
-        C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.exe
->>>>>>> parent of ccb95c2 (A)
+      The C compiler identification is GNU, found in:
+        D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/a.exe
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:1153 (message)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:4 (project)"
-    message: |
-      Detecting C compiler /showIncludes prefix:
-        main.c
-<<<<<<< HEAD
-        注意: 包含文件:  C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
-=======
-        注意: 包含文件:  C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
->>>>>>> parent of ccb95c2 (A)
-        
-      Found prefix "注意: 包含文件:  "
-  -
-    kind: "message-v1"
-    backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:4 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe 
+      Compiler: D:/CLion 2023.2.2/bin/mingw/bin/g++.exe 
       Build flags: 
       Id flags:  
       
       The output was:
       0
-      用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.37.32825 版
-      版权所有(C) Microsoft Corporation。保留所有权利。
-      
-      CMakeCXXCompilerId.cpp
-      Microsoft (R) Incremental Linker Version 14.37.32825.0
-      Copyright (C) Microsoft Corporation.  All rights reserved.
-      
-      /out:CMakeCXXCompilerId.exe 
-      CMakeCXXCompilerId.obj 
       
       
-      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
       
-      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      The CXX compiler identification is GNU, found in:
+        D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/a.exe
       
-      The CXX compiler identification is MSVC, found in:
-<<<<<<< HEAD
-        C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
-=======
-        C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.exe
->>>>>>> parent of ccb95c2 (A)
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:1153 (message)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:4 (project)"
-    message: |
-      Detecting CXX compiler /showIncludes prefix:
-        main.c
-<<<<<<< HEAD
-        注意: 包含文件:  C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
-=======
-        注意: 包含文件:  C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
->>>>>>> parent of ccb95c2 (A)
-        
-      Found prefix "注意: 包含文件:  "
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:4 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-<<<<<<< HEAD
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jlkue"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jlkue"
-=======
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3yzy1v"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3yzy1v"
->>>>>>> parent of ccb95c2 (A)
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-<<<<<<< HEAD
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5jlkue
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_b8b18\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_b8b18.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_b8b18.dir\\build
-        Building C object CMakeFiles/cmTC_b8b18.dir/CMakeCCompilerABI.c.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_b8b18.dir\\CMakeCCompilerABI.c.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jlkue --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm70BB.tmp
-        CMakeCCompilerABI.c
-        ?鈷? 鍖呭惈鏂囦欢:  C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCompilerABI.h
-        Linking C executable cmTC_b8b18.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b8b18.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b8b18.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7243.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_b8b18.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_b8b18.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_b8b18.dir/manifest.res CMakeFiles\\cmTC_b8b18.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b8b18.dir\\objects1.rsp /out:cmTC_b8b18.exe /implib:cmTC_b8b18.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jlkue\\cmTC_b8b18.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b8b18.dir/intermediate.manifest CMakeFiles\\cmTC_b8b18.dir/manifest.res
-        MT:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_b8b18.dir/intermediate.manifest /out:CMakeFiles\\cmTC_b8b18.dir/embed.manifest /notify_update
-        RC Pass 2:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_b8b18.dir/manifest.res CMakeFiles\\cmTC_b8b18.dir/manifest.rc
-        FINAL LINK:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b8b18.dir\\objects1.rsp /out:cmTC_b8b18.exe /implib:cmTC_b8b18.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5jlkue\\cmTC_b8b18.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b8b18.dir/intermediate.manifest CMakeFiles\\cmTC_b8b18.dir/manifest.res
-=======
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-3yzy1v
-        
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_6a300 && [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_6a300.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_6a300.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_6a300.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_6a300.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_6a300.exe /implib:cmTC_6a300.lib /pdb:cmTC_6a300.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
->>>>>>> parent of ccb95c2 (A)
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_6a0d2/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_6a0d2.dir\\build.make CMakeFiles/cmTC_6a0d2.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p'
+        Building C object CMakeFiles/cmTC_6a0d2.dir/CMakeCCompilerABI.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"   -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj -c "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+        Using built-in specs.
+        COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 13.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\'
+         D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1.exe -quiet -v -iprefix D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_6a0d2.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\www\\AppData\\Local\\Temp\\ccfteRUR.s
+        GNU C17 (GCC) version 13.1.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 13.1.0, GMP version 6.2.1, MPFR version 4.2.0-p4, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include"
+        ignoring nonexistent directory "/win/include"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../include"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "/mingw/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        Compiler executable checksum: 2aa4fcf5c9208168c5e2d38a58fc2a97
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\'
+         as -v -o CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj C:\\Users\\www\\AppData\\Local\\Temp\\ccfteRUR.s
+        GNU assembler version 2.40 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.40
+        COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/
+        LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.'
+        Linking C executable cmTC_6a0d2.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_6a0d2.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_6a0d2.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_6a0d2.dir/objects.a @CMakeFiles\\cmTC_6a0d2.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"  -v -Wl,--whole-archive CMakeFiles\\cmTC_6a0d2.dir/objects.a -Wl,--no-whole-archive -o cmTC_6a0d2.exe -Wl,--out-implib,libcmTC_6a0d2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe
+        COLLECT_LTO_WRAPPER=D:/CLion\\ 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 13.1.0 (GCC) 
+        COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/
+        LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6a0d2.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_6a0d2.'
+         D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/collect2.exe -m i386pep -Bdynamic -o cmTC_6a0d2.exe D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. --whole-archive CMakeFiles\\cmTC_6a0d2.dir/objects.a --no-whole-archive --out-implib libcmTC_6a0d2.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6a0d2.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_6a0d2.'
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p'
         
       exitCode: 0
   -
+    kind: "message-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:4 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include] ==> [D:/CLion 2023.2.2/bin/mingw/include]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include] ==> [D:/CLion 2023.2.2/bin/mingw/x86_64-w64-mingw32/include]
+        implicit include dirs: [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/CLion 2023.2.2/bin/mingw/include;D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/CLion 2023.2.2/bin/mingw/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:4 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p]
+        ignore line: []
+        ignore line: [Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_6a0d2/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_6a0d2.dir\\build.make CMakeFiles/cmTC_6a0d2.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p']
+        ignore line: [Building C object CMakeFiles/cmTC_6a0d2.dir/CMakeCCompilerABI.c.obj]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"   -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj -c "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.1.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\']
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1.exe -quiet -v -iprefix D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_6a0d2.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\www\\AppData\\Local\\Temp\\ccfteRUR.s]
+        ignore line: [GNU C17 (GCC) version 13.1.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 13.1.0  GMP version 6.2.1  MPFR version 4.2.0-p4  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include"]
+        ignore line: [ignoring nonexistent directory "/win/include"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../include"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "/mingw/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 2aa4fcf5c9208168c5e2d38a58fc2a97]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\']
+        ignore line: [ as -v -o CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj C:\\Users\\www\\AppData\\Local\\Temp\\ccfteRUR.s]
+        ignore line: [GNU assembler version 2.40 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.40]
+        ignore line: [COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_6a0d2.dir\\CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_6a0d2.exe]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_6a0d2.dir\\link.txt --verbose=1]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_6a0d2.dir/objects.a]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_6a0d2.dir/objects.a @CMakeFiles\\cmTC_6a0d2.dir\\objects1.rsp]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"  -v -Wl --whole-archive CMakeFiles\\cmTC_6a0d2.dir/objects.a -Wl --no-whole-archive -o cmTC_6a0d2.exe -Wl --out-implib libcmTC_6a0d2.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=D:/CLion\\ 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.1.0 (GCC) ]
+        ignore line: [COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6a0d2.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_6a0d2.']
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/collect2.exe -m i386pep -Bdynamic -o cmTC_6a0d2.exe D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. --whole-archive CMakeFiles\\cmTC_6a0d2.dir/objects.a --no-whole-archive --out-implib libcmTC_6a0d2.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6a0d2.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_6a0d2.']
+        ignore line: [mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-m05k5p']
+        ignore line: []
+        ignore line: []
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:4 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-<<<<<<< HEAD
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-f93esq"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-f93esq"
-=======
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fv7dts"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fv7dts"
->>>>>>> parent of ccb95c2 (A)
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz"
     cmakeVariables:
-      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS: ""
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-<<<<<<< HEAD
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-f93esq
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_1e498\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_1e498.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_1e498.dir\\build
-        Building CXX object CMakeFiles/cmTC_1e498.dir/CMakeCXXCompilerABI.cpp.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_1e498.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-f93esq --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm74D2.tmp
-        CMakeCXXCompilerABI.cpp
-        ?鈷? 鍖呭惈鏂囦欢:  C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCompilerABI.h
-        Linking CXX executable cmTC_1e498.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_1e498.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_1e498.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7550.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_1e498.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_1e498.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_1e498.dir/manifest.res CMakeFiles\\cmTC_1e498.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_1e498.dir\\objects1.rsp /out:cmTC_1e498.exe /implib:cmTC_1e498.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-f93esq\\cmTC_1e498.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_1e498.dir/intermediate.manifest CMakeFiles\\cmTC_1e498.dir/manifest.res
-        MT:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_1e498.dir/intermediate.manifest /out:CMakeFiles\\cmTC_1e498.dir/embed.manifest /notify_update
-        RC Pass 2:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_1e498.dir/manifest.res CMakeFiles\\cmTC_1e498.dir/manifest.rc
-        FINAL LINK:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_1e498.dir\\objects1.rsp /out:cmTC_1e498.exe /implib:cmTC_1e498.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-f93esq\\cmTC_1e498.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_1e498.dir/intermediate.manifest CMakeFiles\\cmTC_1e498.dir/manifest.res
-=======
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fv7dts
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_ac381/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_ac381.dir\\build.make CMakeFiles/cmTC_ac381.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz'
+        Building CXX object CMakeFiles/cmTC_ac381.dir/CMakeCXXCompilerABI.cpp.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe"   -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj -c "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        Using built-in specs.
+        COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 13.1.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\'
+         D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -v -iprefix D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_ac381.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\www\\AppData\\Local\\Temp\\ccDOuFk3.s
+        GNU C++17 (GCC) version 13.1.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 13.1.0, GMP version 6.2.1, MPFR version 4.2.0-p4, MPC version 1.3.1, isl version none
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include"
+        ignoring nonexistent directory "/win/include"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../include"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"
+        ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "/mingw/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed
+         D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        Compiler executable checksum: e75de627edc3c57e31324b930b15b056
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\'
+         as -v -o CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\www\\AppData\\Local\\Temp\\ccDOuFk3.s
+        GNU assembler version 2.40 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.40
+        COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/
+        LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_ac381.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_ac381.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_ac381.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_ac381.dir/objects.a @CMakeFiles\\cmTC_ac381.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe"  -v -Wl,--whole-archive CMakeFiles\\cmTC_ac381.dir/objects.a -Wl,--no-whole-archive -o cmTC_ac381.exe -Wl,--out-implib,libcmTC_ac381.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+        Using built-in specs.
+        COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe
+        COLLECT_LTO_WRAPPER=D:/CLion\\ 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends
+        Thread model: posix
+        Supported LTO compression algorithms: zlib
+        gcc version 13.1.0 (GCC) 
+        COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/
+        LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/;D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ac381.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_ac381.'
+         D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/collect2.exe -m i386pep -Bdynamic -o cmTC_ac381.exe D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. --whole-archive CMakeFiles\\cmTC_ac381.dir/objects.a --no-whole-archive --out-implib libcmTC_ac381.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ac381.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_ac381.'
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz'
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_8b2e0 && [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_8b2e0.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_8b2e0.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_8b2e0.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_8b2e0.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_8b2e0.exe /implib:cmTC_8b2e0.lib /pdb:cmTC_8b2e0.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
->>>>>>> parent of ccb95c2 (A)
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:4 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+          add: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include] ==> [D:/CLion 2023.2.2/bin/mingw/include]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed] ==> [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+        collapse include dir [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include] ==> [D:/CLion 2023.2.2/bin/mingw/x86_64-w64-mingw32/include]
+        implicit include dirs: [D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/CLion 2023.2.2/bin/mingw/include;D:/CLion 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/CLion 2023.2.2/bin/mingw/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:4 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz]
+        ignore line: []
+        ignore line: [Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_ac381/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_ac381.dir\\build.make CMakeFiles/cmTC_ac381.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz']
+        ignore line: [Building CXX object CMakeFiles/cmTC_ac381.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe"   -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj -c "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.1.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\']
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -v -iprefix D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRANT D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_ac381.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -fdiagnostics-color=always -o C:\\Users\\www\\AppData\\Local\\Temp\\ccDOuFk3.s]
+        ignore line: [GNU C++17 (GCC) version 13.1.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 13.1.0  GMP version 6.2.1  MPFR version 4.2.0-p4  MPC version 1.3.1  isl version none]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include"]
+        ignore line: [ignoring nonexistent directory "/win/include"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../include"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "D:/CLion 2023.2.2/bin/mingw/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "/mingw/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed]
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: e75de627edc3c57e31324b930b15b056]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\']
+        ignore line: [ as -v -o CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\www\\AppData\\Local\\Temp\\ccDOuFk3.s]
+        ignore line: [GNU assembler version 2.40 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.40]
+        ignore line: [COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_ac381.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_ac381.exe]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_ac381.dir\\link.txt --verbose=1]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_ac381.dir/objects.a]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_ac381.dir/objects.a @CMakeFiles\\cmTC_ac381.dir\\objects1.rsp]
+        ignore line: ["D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe"  -v -Wl --whole-archive CMakeFiles\\cmTC_ac381.dir/objects.a -Wl --no-whole-archive -o cmTC_ac381.exe -Wl --out-implib libcmTC_ac381.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=D:\\CLion 2023.2.2\\bin\\mingw\\bin\\g++.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=D:/CLion\\ 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../gcc-13.1.0/configure --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --build=x86_64-alpine-linux-musl --prefix=/win --enable-checking=release --enable-fully-dynamic-string --enable-languages=c,c++ --with-arch=nocona --with-tune=generic --enable-libatomic --enable-libgomp --enable-libstdcxx-filesystem-ts --enable-libstdcxx-time --enable-seh-exceptions --enable-shared --enable-static --enable-threads=posix --enable-version-specific-runtime-libs --disable-bootstrap --disable-graphite --disable-libada --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-libquadmath --disable-lto --disable-nls --disable-multilib --disable-rpath --disable-symvers --disable-werror --disable-win32-registry --with-gnu-as --with-gnu-ld --with-system-libiconv --with-system-libz --with-gmp=/win/makedepends --with-mpfr=/win/makedepends --with-mpc=/win/makedepends]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.1.0 (GCC) ]
+        ignore line: [COMPILER_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ac381.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_ac381.']
+        ignore line: [ D:/CLion 2023.2.2/bin/mingw/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/collect2.exe -m i386pep -Bdynamic -o cmTC_ac381.exe D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtbegin.o -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0 -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib -LD:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../.. --whole-archive CMakeFiles\\cmTC_ac381.dir/objects.a --no-whole-archive --out-implib libcmTC_ac381.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/lib/../lib/default-manifest.o D:/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ac381.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_ac381.']
+        ignore line: [mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-ndadmz']
+        ignore line: []
+        ignore line: []
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "3rd_party/glfw/CMakeLists.txt:58 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5x6w7z"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5x6w7z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5x6w7z
+        
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_11303/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_11303.dir\\build.make CMakeFiles/cmTC_11303.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5x6w7z'
+        Building C object CMakeFiles/cmTC_11303.dir/src.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -DCMAKE_HAVE_LIBC_PTHREAD  -fdiagnostics-color=always -o CMakeFiles\\cmTC_11303.dir\\src.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-5x6w7z\\src.c
+        Linking C executable cmTC_11303.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_11303.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_11303.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_11303.dir/objects.a @CMakeFiles\\cmTC_11303.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -Wl,--whole-archive CMakeFiles\\cmTC_11303.dir/objects.a -Wl,--no-whole-archive -o cmTC_11303.exe -Wl,--out-implib,libcmTC_11303.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_11303.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-5x6w7z'
         
       exitCode: 0
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
-      - "3rd_party/glfw/CMakeLists.txt:58 (find_package)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "3rd_party/glfw/CMakeLists.txt:102 (check_include_file)"
     checks:
-      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+      - "Looking for dinput.h"
     directories:
-<<<<<<< HEAD
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-877bj9"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-877bj9"
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hr73ou"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hr73ou"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
-=======
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p1wswm"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p1wswm"
-    cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
->>>>>>> parent of ccb95c2 (A)
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
     buildResult:
-      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      variable: "DINPUT_H_FOUND"
       cached: true
       stdout: |
-<<<<<<< HEAD
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-877bj9
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hr73ou
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_4bdec\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_4bdec.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_4bdec.dir\\build
-        Building C object CMakeFiles/cmTC_4bdec.dir/src.c.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_4bdec.dir\\src.c.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-877bj9 --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm77A1.tmp
-        src.c
-        C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-877bj9\\src.c(1): fatal error C1083: 鏃犳硶鎵撳紑鍖呮嫭鏂囦欢: 鈥減thread.h鈥? No such file or directory
-        NMAKE : fatal error U1077: “"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_4bdec.dir\\src.c.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-877bj9 --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm77A1.tmp”: 返回代码“0x2”
-        Stop.
-        NMAKE : fatal error U1077: “"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_4bdec.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_4bdec.dir\\build”: 返回代码“0x2”
-        Stop.
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_f8d36/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_f8d36.dir\\build.make CMakeFiles/cmTC_f8d36.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hr73ou'
+        Building C object CMakeFiles/cmTC_f8d36.dir/CheckIncludeFile.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"   -fdiagnostics-color=always -o CMakeFiles\\cmTC_f8d36.dir\\CheckIncludeFile.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hr73ou\\CheckIncludeFile.c
+        Linking C executable cmTC_f8d36.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_f8d36.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_f8d36.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_f8d36.dir/objects.a @CMakeFiles\\cmTC_f8d36.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -Wl,--whole-archive CMakeFiles\\cmTC_f8d36.dir/objects.a -Wl,--no-whole-archive -o cmTC_f8d36.exe -Wl,--out-implib,libcmTC_f8d36.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_f8d36.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hr73ou'
         
-      exitCode: 2
-=======
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-p1wswm
-        
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_72f2e && [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_72f2e.dir\\src.c.obj /FdCMakeFiles\\cmTC_72f2e.dir\\ /FS -c C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-p1wswm\\src.c
-        FAILED: CMakeFiles/cmTC_72f2e.dir/src.c.obj 
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_72f2e.dir\\src.c.obj /FdCMakeFiles\\cmTC_72f2e.dir\\ /FS -c C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-p1wswm\\src.c
-        C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-p1wswm\\src.c(1): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory
-        ninja: build stopped: subcommand failed.
-        
-      exitCode: 1
->>>>>>> parent of ccb95c2 (A)
+      exitCode: 0
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:175 (_threads_check_lib)"
-      - "3rd_party/glfw/CMakeLists.txt:58 (find_package)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "3rd_party/glfw/CMakeLists.txt:103 (check_include_file)"
     checks:
-      - "Looking for pthread_create in pthreads"
+      - "Looking for xinput.h"
     directories:
-<<<<<<< HEAD
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uur9xc"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uur9xc"
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-i6rj2w"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-i6rj2w"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
-=======
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zq3md4"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zq3md4"
-    cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
->>>>>>> parent of ccb95c2 (A)
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
     buildResult:
-      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      variable: "XINPUT_H_FOUND"
       cached: true
       stdout: |
-<<<<<<< HEAD
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uur9xc
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-i6rj2w
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_bec04\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_bec04.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_bec04.dir\\build
-        Building C object CMakeFiles/cmTC_bec04.dir/CheckFunctionExists.c.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_bec04.dir\\CheckFunctionExists.c.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-uur9xc --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm78CA.tmp
-        CheckFunctionExists.c
-        Linking C executable cmTC_bec04.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_bec04.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bec04.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7957.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_bec04.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_bec04.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_bec04.dir/manifest.res CMakeFiles\\cmTC_bec04.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bec04.dir\\objects1.rsp /out:cmTC_bec04.exe /implib:cmTC_bec04.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-uur9xc\\cmTC_bec04.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bec04.dir/intermediate.manifest CMakeFiles\\cmTC_bec04.dir/manifest.res
-        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bec04.dir\\objects1.rsp /out:cmTC_bec04.exe /implib:cmTC_bec04.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-uur9xc\\cmTC_bec04.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_bec04.dir/intermediate.manifest CMakeFiles\\cmTC_bec04.dir/manifest.res" failed (exit code 1104) with the following output:
-        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib”
-        NMAKE : fatal error U1077: “"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_bec04.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_bec04.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7957.tmp”: 返回代码“0xffffffff”
-        Stop.
-        NMAKE : fatal error U1077: “"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_bec04.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_bec04.dir\\build”: 返回代码“0x2”
-        Stop.
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_95ada/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_95ada.dir\\build.make CMakeFiles/cmTC_95ada.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-i6rj2w'
+        Building C object CMakeFiles/cmTC_95ada.dir/CheckIncludeFile.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"   -fdiagnostics-color=always -o CMakeFiles\\cmTC_95ada.dir\\CheckIncludeFile.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-i6rj2w\\CheckIncludeFile.c
+        Linking C executable cmTC_95ada.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_95ada.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_95ada.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_95ada.dir/objects.a @CMakeFiles\\cmTC_95ada.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -Wl,--whole-archive CMakeFiles\\cmTC_95ada.dir/objects.a -Wl,--no-whole-archive -o cmTC_95ada.exe -Wl,--out-implib,libcmTC_95ada.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_95ada.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-i6rj2w'
         
-      exitCode: 2
-=======
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zq3md4
-        
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_ff628 && [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DCHECK_FUNCTION_EXISTS=pthread_create /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_ff628.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_ff628.dir\\ /FS -c C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-zq3md4\\CheckFunctionExists.c
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_ff628.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ff628.dir\\CheckFunctionExists.c.obj  /out:cmTC_ff628.exe /implib:cmTC_ff628.lib /pdb:cmTC_ff628.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        FAILED: cmTC_ff628.exe 
-        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_ff628.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ff628.dir\\CheckFunctionExists.c.obj  /out:cmTC_ff628.exe /implib:cmTC_ff628.lib /pdb:cmTC_ff628.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ff628.dir\\CheckFunctionExists.c.obj /out:cmTC_ff628.exe /implib:cmTC_ff628.lib /pdb:cmTC_ff628.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_ff628.dir/intermediate.manifest CMakeFiles\\cmTC_ff628.dir/manifest.res" failed (exit code 1104) with the following output:
-        LINK : fatal error LNK1104: 无法打开文件“pthreads.lib”
-        ninja: build stopped: subcommand failed.
-        
-      exitCode: 1
->>>>>>> parent of ccb95c2 (A)
+      exitCode: 0
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
-      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:176 (_threads_check_lib)"
-      - "3rd_party/glfw/CMakeLists.txt:58 (find_package)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCCompilerFlag.cmake:40 (cmake_check_compiler_flag)"
+      - "3rd_party/glfw/CMakeLists.txt:113 (check_c_compiler_flag)"
     checks:
-      - "Looking for pthread_create in pthread"
+      - "Performing Test _GLFW_HAS_DEP"
     directories:
-<<<<<<< HEAD
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rd51pl"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rd51pl"
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uaovfq"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uaovfq"
     cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
-=======
-      source: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-urgk3x"
-      binary: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-urgk3x"
-    cmakeVariables:
-      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
-      CMAKE_MODULE_PATH: "C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake;C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
->>>>>>> parent of ccb95c2 (A)
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
     buildResult:
-      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      variable: "_GLFW_HAS_DEP"
       cached: true
       stdout: |
-<<<<<<< HEAD
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-rd51pl
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uaovfq
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 nmake -f Makefile /nologo cmTC_b97d8\\fast && 	"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_b97d8.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_b97d8.dir\\build
-        Building C object CMakeFiles/cmTC_b97d8.dir/CheckFunctionExists.c.obj
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_b97d8.dir\\CheckFunctionExists.c.obj.d --working-dir=C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-rd51pl --filter-prefix="注意: 包含文件:  " -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7A50.tmp
-        CheckFunctionExists.c
-        Linking C executable cmTC_b97d8.exe
-        	"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b97d8.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b97d8.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7ABF.tmp
-        Visual Studio Incremental Link with embedded manifests
-        Create CMakeFiles\\cmTC_b97d8.dir/manifest.rc
-        Create empty: CMakeFiles\\cmTC_b97d8.dir/embed.manifest
-        RC Pass 1:
-        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_b97d8.dir/manifest.res CMakeFiles\\cmTC_b97d8.dir/manifest.rc
-        LINK Pass 1:
-        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b97d8.dir\\objects1.rsp /out:cmTC_b97d8.exe /implib:cmTC_b97d8.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-rd51pl\\cmTC_b97d8.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b97d8.dir/intermediate.manifest CMakeFiles\\cmTC_b97d8.dir/manifest.res
-        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b97d8.dir\\objects1.rsp /out:cmTC_b97d8.exe /implib:cmTC_b97d8.lib /pdb:C:\\Users\\Acer\\Documents\\GitHub\\Geo1016\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-rd51pl\\cmTC_b97d8.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b97d8.dir/intermediate.manifest CMakeFiles\\cmTC_b97d8.dir/manifest.res" failed (exit code 1104) with the following output:
-        LINK : fatal error LNK1104: 无法打开文件“pthread.lib”
-        NMAKE : fatal error U1077: “"C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_b97d8.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b97d8.dir\\objects1.rsp @C:\\Users\\Acer\\AppData\\Local\\Temp\\nm7ABF.tmp”: 返回代码“0xffffffff”
-        Stop.
-        NMAKE : fatal error U1077: “"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\nmake.exe"  -f CMakeFiles\\cmTC_b97d8.dir\\build.make /nologo -L                  CMakeFiles\\cmTC_b97d8.dir\\build”: 返回代码“0x2”
-        Stop.
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_e79da/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_e79da.dir\\build.make CMakeFiles/cmTC_e79da.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uaovfq'
+        Building C object CMakeFiles/cmTC_e79da.dir/src.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -D_GLFW_HAS_DEP  -Wl,--nxcompat -fdiagnostics-color=always -o CMakeFiles\\cmTC_e79da.dir\\src.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-uaovfq\\src.c
+        Linking C executable cmTC_e79da.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_e79da.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_e79da.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_e79da.dir/objects.a @CMakeFiles\\cmTC_e79da.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"  -Wl,--nxcompat -Wl,--whole-archive CMakeFiles\\cmTC_e79da.dir/objects.a -Wl,--no-whole-archive -o cmTC_e79da.exe -Wl,--out-implib,libcmTC_e79da.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_e79da.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-uaovfq'
         
-      exitCode: 2
-=======
-        Change Dir: C:/Users/Acer/Documents/GitHub/Geo1016-Assignment1/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-urgk3x
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCCompilerFlag.cmake:40 (cmake_check_compiler_flag)"
+      - "3rd_party/glfw/CMakeLists.txt:120 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test _GLFW_HAS_ASLR"
+    directories:
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sgalw5"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sgalw5"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
+    buildResult:
+      variable: "_GLFW_HAS_ASLR"
+      cached: true
+      stdout: |
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sgalw5
         
-        Run Build Command(s):C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe -v cmTC_f0f13 && [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -DCHECK_FUNCTION_EXISTS=pthread_create /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_f0f13.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_f0f13.dir\\ /FS -c C:\\Users\\Acer\\Documents\\GitHub\\Geo1016-Assignment1\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-urgk3x\\CheckFunctionExists.c
-        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f0f13.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f0f13.dir\\CheckFunctionExists.c.obj  /out:cmTC_f0f13.exe /implib:cmTC_f0f13.lib /pdb:cmTC_f0f13.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        FAILED: cmTC_f0f13.exe 
-        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_f0f13.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f0f13.dir\\CheckFunctionExists.c.obj  /out:cmTC_f0f13.exe /implib:cmTC_f0f13.lib /pdb:cmTC_f0f13.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_f0f13.dir\\CheckFunctionExists.c.obj /out:cmTC_f0f13.exe /implib:cmTC_f0f13.lib /pdb:cmTC_f0f13.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_f0f13.dir/intermediate.manifest CMakeFiles\\cmTC_f0f13.dir/manifest.res" failed (exit code 1104) with the following output:
-        LINK : fatal error LNK1104: 无法打开文件“pthread.lib”
-        ninja: build stopped: subcommand failed.
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_64634/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_64634.dir\\build.make CMakeFiles/cmTC_64634.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sgalw5'
+        Building C object CMakeFiles/cmTC_64634.dir/src.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -D_GLFW_HAS_ASLR  -Wl,--dynamicbase -fdiagnostics-color=always -o CMakeFiles\\cmTC_64634.dir\\src.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-sgalw5\\src.c
+        Linking C executable cmTC_64634.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_64634.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_64634.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_64634.dir/objects.a @CMakeFiles\\cmTC_64634.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"  -Wl,--dynamicbase -Wl,--whole-archive CMakeFiles\\cmTC_64634.dir/objects.a -Wl,--no-whole-archive -o cmTC_64634.exe -Wl,--out-implib,libcmTC_64634.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_64634.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-sgalw5'
         
-      exitCode: 1
->>>>>>> parent of ccb95c2 (A)
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "D:/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCCompilerFlag.cmake:40 (cmake_check_compiler_flag)"
+      - "3rd_party/glfw/CMakeLists.txt:127 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test _GLFW_HAS_64ASLR"
+    directories:
+      source: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hwth9r"
+      binary: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hwth9r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake;D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/3rd_party/glfw/CMake/modules"
+    buildResult:
+      variable: "_GLFW_HAS_64ASLR"
+      cached: true
+      stdout: |
+        Change Dir: D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hwth9r
+        
+        Run Build Command(s):D:/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe -E env VERBOSE=1 D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_7cf56/fast && D:/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_7cf56.dir\\build.make CMakeFiles/cmTC_7cf56.dir/build
+        mingw32-make[1]: Entering directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hwth9r'
+        Building C object CMakeFiles/cmTC_7cf56.dir/src.c.obj
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe" -D_GLFW_HAS_64ASLR  -Wl,--high-entropy-va -fdiagnostics-color=always -o CMakeFiles\\cmTC_7cf56.dir\\src.c.obj -c D:\\GEO1016\\Geo1016-photogrammetry\\A1_Calibration_Code\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-hwth9r\\src.c
+        Linking C executable cmTC_7cf56.exe
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_7cf56.dir\\link.txt --verbose=1
+        "D:\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_7cf56.dir/objects.a
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\ar.exe" qc CMakeFiles\\cmTC_7cf56.dir/objects.a @CMakeFiles\\cmTC_7cf56.dir\\objects1.rsp
+        "D:\\CLion 2023.2.2\\bin\\mingw\\bin\\gcc.exe"  -Wl,--high-entropy-va -Wl,--whole-archive CMakeFiles\\cmTC_7cf56.dir/objects.a -Wl,--no-whole-archive -o cmTC_7cf56.exe -Wl,--out-implib,libcmTC_7cf56.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_7cf56.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'D:/GEO1016/Geo1016-photogrammetry/A1_Calibration_Code/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-hwth9r'
+        
+      exitCode: 0
 ...

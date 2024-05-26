@@ -1,0 +1,3 @@
+D:/GEO1016/Geo1016-photogrammetry/A2_Triangulation_Code/Triangulation/cmake-build-debug/CMakeFiles/Triangulation.dir
+D:/GEO1016/Geo1016-photogrammetry/A2_Triangulation_Code/Triangulation/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/GEO1016/Geo1016-photogrammetry/A2_Triangulation_Code/Triangulation/cmake-build-debug/CMakeFiles/rebuild_cache.dir

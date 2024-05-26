@@ -48,7 +48,7 @@ struct normalization {
 bool check_input(const std::vector<Vector2D>& points_0, const std::vector<Vector2D>& points_1) {
     // check if the number of correspondences >= 8
     if (points_0.size() < 8 || points_1.size() < 8) {
-        std::cerr << "Error: the number of correspondences must be at least 6." << std::endl;
+        std::cerr << "Error: the number of correspondences must be at least 8." << std::endl;
         return false;
     }
 
@@ -203,7 +203,8 @@ void construct_M(Matrix33 K, Matrix R, Vector3D t, Matrix &M){
 //// Triangulate a pair of image points
 int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
                       const std::vector<Vector2D> &points_1,
-                      Matrix33 &R_prime, Vector3D &t_prime){
+                      const Matrix33 &R_prime, const Vector3D &t_prime,
+                      std::vector<Vector3D> &points_3d){
 
     Matrix R = Matrix::identity(3,3);
     Vector3D t;
@@ -252,6 +253,7 @@ int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
         Vector3D P_cam1 = R_prime * P_homo + t_prime;
 
         if (P_cam0[2] > 0 && P_cam1[2] > 0) {
+            points_3d.push_back(P_cam0);
             points_in_front_of_both_cameras ++;
         }
 
@@ -260,26 +262,61 @@ int triangulate_func(Matrix33 K, const std::vector<Vector2D> &points_0,
 }
 
 //// Find the correct (R,t) pair which has the most 3D points lying in front of both cameras
-void get_correct_R_and_t(Matrix33 &R, Vector3D &t, Matrix33 &K, const std::vector<Vector2D> points_0,
-                const std::vector<Vector2D> points_1, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, Vector3D &t2){
-    int sol1 = triangulate_func(K, points_0, points_1, R1, t1);
-    int sol2 = triangulate_func(K, points_0, points_1, R1, t2);
-    int sol3 = triangulate_func(K, points_0, points_1, R2, t1);
-    int sol4 = triangulate_func(K, points_0, points_1, R2, t2);
-    int max_solution = std::max({sol1, sol2, sol3, sol4});
-    if (max_solution == sol1) {
-        R = R1;
-        t = t1;
-    } else if (max_solution == sol2) {
-        R = R1;
-        t = t2;
-    } else if (max_solution == sol3) {
-        R = R2;
-        t = t1;
-    } else {
-        R = R2;
-        t = t2;
-    }
+//void get_correct_R_and_t(Matrix33 &R, Vector3D &t, Matrix33 &K, const std::vector<Vector2D> points_0,
+//                const std::vector<Vector2D> points_1, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, Vector3D &t2){
+//    int sol1 = triangulate_func(K, points_0, points_1, R1, t1);
+//    int sol2 = triangulate_func(K, points_0, points_1, R1, t2);
+//    int sol3 = triangulate_func(K, points_0, points_1, R2, t1);
+//    int sol4 = triangulate_func(K, points_0, points_1, R2, t2);
+//    int max_solution = std::max({sol1, sol2, sol3, sol4});
+//    if (max_solution == sol1) {
+//        R = R1;
+//        t = t1;
+//    } else if (max_solution == sol2) {
+//        R = R1;
+//        t = t2;
+//    } else if (max_solution == sol3) {
+//        R = R2;
+//        t = t1;
+//    } else {
+//        R = R2;
+//        t = t2;
+//    }
+//}
+void get_correct_R_and_t(
+        Matrix33 &R, Vector3D &t, const Matrix33 &K,
+        const std::vector<Vector2D> &points_0,
+        const std::vector<Vector2D> &points_1,
+        const Matrix33 &R1, const Matrix33 &R2,
+        const Vector3D &t1, const Vector3D &t2,
+        std::vector<Vector3D> &best_points_3d)  // To store the best set of 3D points
+{
+  std::vector<Vector3D> points_3d_1, points_3d_2, points_3d_3, points_3d_4;
+  int sol1 = triangulate_func(K, points_0, points_1, R1, t1, points_3d_1);
+  int sol2 = triangulate_func(K, points_0, points_1, R1, t2, points_3d_2);
+  int sol3 = triangulate_func(K, points_0, points_1, R2, t1, points_3d_3);
+  int sol4 = triangulate_func(K, points_0, points_1, R2, t2, points_3d_4);
+
+  // Determine the best solution
+  int max_solution = std::max({sol1, sol2, sol3, sol4});
+
+  if (max_solution == sol1) {
+    R = R1;
+    t = t1;
+    best_points_3d = std::move(points_3d_1);
+  } else if (max_solution == sol2) {
+    R = R1;
+    t = t2;
+    best_points_3d = std::move(points_3d_2);
+  } else if (max_solution == sol3) {
+    R = R2;
+    t = t1;
+    best_points_3d = std::move(points_3d_3);
+  } else {
+    R = R2;
+    t = t2;
+    best_points_3d = std::move(points_3d_4);
+  }
 }
 
 
@@ -290,11 +327,12 @@ public:
     Matrix M,Mp; // camera parameter matrices
 
     // constructor
-    TriangulationObjective(const std::vector<Vector2D> &points0, const std::vector<Vector2D> &points1,
-                           const Matrix &M0,
-                           const Matrix &M1)
-            : Objective_LM(points0.size()*2, 3), p(points0), p_prime(points1), M(M0), Mp(M1) {}
-    int evaluate(const double *x, double *fvec) override {
+    TriangulationObjective(int num_func, int num_var,
+                           std::vector<Vector2D> points0, std::vector<Vector2D> points1,
+                           Matrix M0, Matrix M1)
+            : Objective_LM(points0.size()*2, 3),
+            p(points0), p_prime(points1), M(M0), Mp(M1) {}
+    int evaluate(const double *x, double *fvec){
         double P_data[4] = {x[0], x[1], x[2], 1.0};
         Matrix P(4,1,P_data);
         for (int i = 0; i < p.size(); ++i) {
@@ -302,14 +340,39 @@ public:
             Matrix projected_p_prime = Mp * P;
             projected_p /= projected_p(2,0);
             projected_p_prime /= projected_p_prime(2,0);
-            for (int j = 0; j < 2; ++j) {
-                fvec[2*i + j] = projected_p(j,0) - p[i][j];
-                fvec[p.size() + 2*i + j] = projected_p_prime(j,0) - p_prime[i][j];
-            }
+            fvec[4*i] = projected_p(0,0) - p[i][0];
+            fvec[4*i+1] = projected_p(1,0) - p[i][1];
+            fvec[4*i+2] = projected_p_prime(0,0) - p_prime[i][0];
+            fvec[4*i+3] = projected_p_prime(1,0) - p_prime[i][1];
         }
         return 0;
     }
 };
+
+////Calculating reprojection errors
+double ReprojectionError(
+        const std::vector<Vector2D>& originalPoints,
+        const std::vector<Vector3D>& reconstructedPoints,
+        const Matrix33& K,
+        const Matrix33& R,
+        const Vector3D& t)
+{
+  double totalError = 0.0;
+  for (size_t i = 0; i < reconstructedPoints.size(); ++i) {
+    // Convert 3D point to homogeneous coordinates
+    Vector4D P_hom(reconstructedPoints[i].x(), reconstructedPoints[i].y(), reconstructedPoints[i].z(), 1.0);
+
+    // Project this point back to 2D
+    Vector3D P_cam = K * (R * Vector3D(P_hom.x(), P_hom.y(), P_hom.z()) + t);  // Convert to non-homogeneous 3D first
+    Vector2D projected2D(P_cam.x() / P_cam.z(), P_cam.y() / P_cam.z());  // Normalize by z to get image coordinates
+
+    // Compute the distance to the original point
+    double dx = originalPoints[i].x() - projected2D.x();
+    double dy = originalPoints[i].y() - projected2D.y();
+    totalError += sqrt(dx * dx + dy * dy);
+  }
+  return totalError / reconstructedPoints.size(); 
+}
 
 bool Triangulation::triangulation(
         double fx, double fy,     /// input: the focal lengths (same for both cameras)
@@ -339,6 +402,8 @@ bool Triangulation::triangulation(
     Matrix F_denormalized = denormalize(F_matrix, norm_data_0.T, norm_data_1.T);
 
     // TODO: - compute the essential matrix E;
+  // TODO: Reconstruct 3D points. The main task is
+  //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
     Matrix33 K;
     construct_matrix_K(K, fx, fy, cx, cy, s);
     std::cout << "K: " << K << std::endl;
@@ -347,27 +412,35 @@ bool Triangulation::triangulation(
     // TODO: - recover rotation R and t.
     Matrix33 R1, R2;
     Vector3D t1, t2;
+
     find_possible_R_and_t(E, R1, R2, t1, t2);
-    get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2);
+    get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2, points_3d);
     std::cout << "R: " << R << std::endl;
     std::cout << "t: " << t << std::endl;
+    for (const auto& pt : points_3d) {
+      std::cout << "Transformed 3D point: " << pt.x() << ", " << pt.y() << ", " << pt.z() << std::endl;
+    }
+    double error1 = ReprojectionError(points_0, points_3d, K, R1, t1);
+    double error2 = ReprojectionError(points_1, points_3d, K, R2, t2);
+    double average_error = (error1 + error2) / 2.0;
+    std::cout << "Average reprojection error: " << average_error << " pixels" << std::endl;
 
-    // TODO: Reconstruct 3D points. The main task is
-    //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
+
+
+
+
 
     //nonlinear optimization
-    Matrix34 M0, M;
-    Matrix R0 = Matrix::identity(3,3);
-    Vector3D t0;
-
-    construct_M(K, R0, t0, M0);
-    construct_M(K, R, t, M);
-    TriangulationObjective obj(points_0, points_1, M0, M);
-    std::vector<double> x = {0.0, 0.0, 0.0}; // initial guess
-    Optimizer_LM lm;
+//    Matrix34 M0, M;
+//    Matrix R0 = Matrix::identity(3,3);
+//    Vector3D t0;
+//
+//    construct_M(K, R0, t0, M0);
+//    construct_M(K, R, t, M);
+//    TriangulationObjective obj(points_0.size(),3,points_0, points_1, M0, M);
+//    std::vector<double> x = {1.0, 0.3, 3.0}; // initial guess
+//    Optimizer_LM lm;
 //    bool status = lm.optimize(&obj, x);
 //    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
-
-
-    return true;
+    return points_3d.size() > 0;
 }
