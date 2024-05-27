@@ -54,7 +54,7 @@ bool check_input(const std::vector<Vector2D>& points_0, const std::vector<Vector
 
         // check if the sizes of 2D/3D points match
     else if (points_0.size() != points_1.size()) {
-        std::cerr << "Error: the sizes of 2D/3D points must match." << std::endl;
+        std::cerr << "Error: the sizes of 2D points must match." << std::endl;
         return false;
     }
 
@@ -93,8 +93,6 @@ normalization normalize(const std::vector<Vector2D>& points){
     T.set(2, 2, 1);
     T.set(0, 2, -centroid.x() * sqrt(2) / avg_dist);
     T.set(1, 2, -centroid.y() * sqrt(2) / avg_dist);
-
-    std::cout << "T: " << T << std::endl;
 
     normalization norm_data;
     norm_data.centroid = centroid;
@@ -160,8 +158,8 @@ void construct_matrix_K(Matrix33 &K, double fx, double fy, double cx, double cy,
 }
 
 //// Compute essential matrix E
-Matrix compute_matrix_E(Matrix33 K, Matrix &F){
-    Matrix E = K.transpose() * F * K;
+Matrix compute_matrix_E(Matrix33 &K_prime, Matrix33 &K, Matrix &F){
+    Matrix E = K_prime.transpose() * F * K;
     return E;
 }
 
@@ -171,14 +169,12 @@ void find_possible_R_and_t(Matrix &E, Matrix33 &R1, Matrix33 &R2, Vector3D &t1, 
     W(0,1) = -1;
     W(1,0) = 1;
     W(2,2) = 1;
-
     Matrix33 U;
     Matrix33 D;
-    Matrix33 V_transpose;
-    svd_decompose(E, U, D, V_transpose);
-
-    R1 = determinant(U * W * V_transpose) * U * W * V_transpose;
-    R2 = determinant(U * W.transpose() * V_transpose) * U * W.transpose() * V_transpose;
+    Matrix33 V;
+    svd_decompose(E, U, D, V) ;
+    R1 = determinant(U * W * V.transpose()) * U * W * V.transpose();
+    R2 = determinant(U * W.transpose() * V.transpose()) * U * W.transpose() * V.transpose();
     t1[0] = U(0,2);
     t1[1] = U(1,2);
     t1[2] = U(2,2);
@@ -406,8 +402,7 @@ bool Triangulation::triangulation(
   //      - triangulate a pair of image points (i.e., compute the 3D coordinates for each corresponding point pair)
     Matrix33 K;
     construct_matrix_K(K, fx, fy, cx, cy, s);
-    std::cout << "K: " << K << std::endl;
-    Matrix E = compute_matrix_E(K, F_denormalized);
+    Matrix E = compute_matrix_E(K, K, F_denormalized);
 
     // TODO: - recover rotation R and t.
     Matrix33 R1, R2;
@@ -415,19 +410,10 @@ bool Triangulation::triangulation(
 
     find_possible_R_and_t(E, R1, R2, t1, t2);
     get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2, points_3d);
-    std::cout << "R: " << R << std::endl;
-    std::cout << "t: " << t << std::endl;
-    for (const auto& pt : points_3d) {
-      std::cout << "Transformed 3D point: " << pt.x() << ", " << pt.y() << ", " << pt.z() << std::endl;
-    }
     double error1 = ReprojectionError(points_0, points_3d, K, R1, t1);
     double error2 = ReprojectionError(points_1, points_3d, K, R2, t2);
     double average_error = (error1 + error2) / 2.0;
     std::cout << "Average reprojection error: " << average_error << " pixels" << std::endl;
-
-
-
-
 
 
     //nonlinear optimization
