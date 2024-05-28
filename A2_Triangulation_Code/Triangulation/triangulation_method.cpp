@@ -330,8 +330,6 @@ double ReprojectionError(
         const Matrix33& K,const Matrix33& R,const Vector3D& t)
 {
   double totalError = 0.0;
-  std::cout << "R_error:" << R << std::endl;
-    std::cout << "t_error:" << t << std::endl;
 
   for (size_t i = 0; i < reconstructedPoints.size(); ++i) {
     // Convert 3D point to homogeneous coordinates
@@ -410,5 +408,5 @@ bool Triangulation::triangulation(
 //    Optimizer_LM lm;
 //    bool status = lm.optimize(&obj, x);
 //    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
-//    return points_3d.size() > 0;
+    return points_3d.size() > 0;
 }
