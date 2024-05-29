@@ -126,7 +126,30 @@ bool Triangulation::key_press_event(int key, int modifiers) {
         std::vector<Vector3D> points_3d;
         Matrix33 R;
         Vector3D t;
+//        std::vector<int> fx_options = {970, 1010, 1030, 1050};
+//        std::vector<int> fy_options = {970, 1010, 1030, 1050};
+//        std::vector<int> cx_options = {200, 240, 320, 400};
+//        std::vector<int> cy_options = {200, 240, 320, 400};
+//        std::vector<int> s_options = {1, 2, 10, 100};
+//        std::vector<double> errors;
+//        std::cout << "fx, fy, cx, cy, s, error" << std::endl;
+//        for (auto fx_: fx_options){
+//            for (auto fy_: fy_options){
+//                for (auto cx_: cx_options){
+//                    for (auto cy_: cy_options){
+//                        for (auto s_: s_options){
+//                            double error = triangulation(fx_, fy_, cx_,
+//                                                         cy_, s_, image_0_points_,
+//                                                         image_1_points_, points_3d, R, t);
+//                            std::cout << fx_ << ", " << fy_ << ", " << cx_ << ", " << cy_ << ", " << s << ", " << error << std::endl;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
         bool success = triangulation(fx, fy, cx, cy, s, image_0_points_, image_1_points_, points_3d, R, t);
+//        bool success = true;
         if (success) {
             if (points_3d.empty()) {
                 LOG(ERROR) << "triangulation() has returned 'true', but no 3D points returned";
