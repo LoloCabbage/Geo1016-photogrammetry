@@ -324,6 +324,30 @@ public:
 };
 
 ////Calculating reprojection errors
+double ReprojectionErrorAtOrigin(
+        const std::vector<Vector2D>& originalPoints,
+        const std::vector<Vector3D>& reconstructedPoints,
+        const Matrix33& K)
+{
+  double totalError = 0.0;
+
+  for (size_t i = 0; i < reconstructedPoints.size(); ++i) {
+    // Convert 3D point to homogeneous coordinates
+    Vector3D P_hom(reconstructedPoints[i].x(), reconstructedPoints[i].y(), reconstructedPoints[i].z());
+
+    // Project this point back to 2D using only the intrinsic matrix K
+    Vector3D P_cam = K * P_hom;  // No need for R and t since they are identity and zero
+    Vector2D projected2D(P_cam.x() / P_cam.z(), P_cam.y() / P_cam.z());  // Normalize by z to get image coordinates
+
+    // Compute the distance to the original point
+    double dx = originalPoints[i].x() - projected2D.x();
+    double dy = originalPoints[i].y() - projected2D.y();
+    totalError += sqrt(dx * dx + dy * dy);
+  }
+  double error = totalError / reconstructedPoints.size();
+  return error;
+}
+
 double ReprojectionError(
         const std::vector<Vector2D>& originalPoints,
         const std::vector<Vector3D>& reconstructedPoints,
@@ -388,9 +412,10 @@ bool Triangulation::triangulation(
 
     find_possible_R_and_t(E, R1, R2, t1, t2);
     get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2, points_3d);
-    double average_error = ReprojectionError(points_1, points_3d, K, R, t);
-    std::cout << "Average linear reprojection error: " << average_error << " pixels" << std::endl;
 
+    double error_l = (ReprojectionError(points_1, points_3d, K, R, t) + ReprojectionErrorAtOrigin(points_0, points_3d, K))/2;
+
+    std::cout << "Average linear reprojection error: " << error_l << " pixels" << std::endl;
 
     //nonlinear optimization
     Matrix34 M0, M;
@@ -421,8 +446,9 @@ bool Triangulation::triangulation(
 
     std::vector<Vector3D> points_3d_after(points_3d.begin(), points_3d.end());
 
-    double nl_average_error = ReprojectionError(points_1, points_3d, K, R, t);
-    std::cout << "Average non-linear reprojection error: " << nl_average_error << " pixels" << std::endl;
+
+    double error_nl = (ReprojectionError(points_1, points_3d, K, R, t) + ReprojectionErrorAtOrigin(points_0, points_3d, K))/2;
+    std::cout << "Average non-linear reprojection error: " << error_nl << " pixels" << std::endl;
 
     for (int i = 0; i < points_3d.size(); i ++){
         std::cout << "Before: " << points_3d_before[i] << std::endl;
