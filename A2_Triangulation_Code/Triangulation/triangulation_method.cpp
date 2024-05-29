@@ -304,7 +304,7 @@ public:
     TriangulationObjective(int num_func, int num_var,
                            std::vector<Vector2D> points0, std::vector<Vector2D> points1,
                            Matrix M0, Matrix M1)
-            : Objective_LM(points0.size()*2, 3),
+            : Objective_LM(points0.size()*4, 3),
             p(points0), p_prime(points1), M(M0), Mp(M1) {}
     int evaluate(const double *x, double *fvec){
         double P_data[4] = {x[0], x[1], x[2], 1.0};
@@ -388,25 +388,37 @@ bool Triangulation::triangulation(
 
     find_possible_R_and_t(E, R1, R2, t1, t2);
     get_correct_R_and_t(R, t, K, points_0, points_1, R1, R2, t1, t2, points_3d);
-    double error1 = ReprojectionError(points_0, points_3d, K, R, t);
-    double error2 = ReprojectionError(points_1, points_3d, K, R, t);
-    double average_error = (error1 + error2) / 2;
-    std::cout << "error1: " << error1 << std::endl;
-    std::cout << "error2: " << error2 << std::endl;
-    std::cout << "Average reprojection error: " << average_error << " pixels" << std::endl;
+    double average_error = ReprojectionError(points_1, points_3d, K, R, t);
+    std::cout << "Average linear reprojection error: " << average_error << " pixels" << std::endl;
 
 
     //nonlinear optimization
-//    Matrix34 M0, M;
-//    Matrix R0 = Matrix::identity(3,3);
-//    Vector3D t0;
-//
-//    construct_M(K, R0, t0, M0);
-//    construct_M(K, R, t, M);
-//    TriangulationObjective obj(points_0.size(),3,points_0, points_1, M0, M);
-//    std::vector<double> x = {0, 0, 0}; // initial guess
-//    Optimizer_LM lm;
-//    bool status = lm.optimize(&obj, x);
-//    std::cout << "the solution is: " << x[0] << "  " << x[1] << "  " << x[2] << std::endl;
+    Matrix34 M0, M;
+    Matrix R0 = Matrix::identity(3,3);
+    Vector3D t0;
+
+    construct_M(K, R0, t0, M0);
+    construct_M(K, R, t, M);
+
+    TriangulationObjective obj(points_0.size()*4,3,
+                               points_0, points_1, M0, M);
+
+
+    std::vector<Vector3D> nl_points_3d;
+    for (int i = 0; i < points_3d.size(); i++) {
+        std::vector<double> x = {points_3d[i].x(), points_3d[i].y(), points_3d[i].z()}; // initial guess
+        Optimizer_LM lm;
+        bool status = lm.optimize(&obj, x);
+        nl_points_3d.push_back(Vector3D(x[0],x[1],x[2]));
+    }
+    for (int i = 0; i < points_3d.size(); i++) {
+        double x_d = nl_points_3d[i].x() - points_3d[i].x();
+        double y_d = nl_points_3d[i].y() - points_3d[i].y();
+        double z_d = nl_points_3d[i].z() - points_3d[i].z();
+        double p_d = x_d*x_d + y_d*y_d + z_d*z_d;
+        std::cout << i << "," << p_d << std::endl;
+    }
+    double nl_average_error = ReprojectionError(points_1, points_3d, K, R, t);
+    std::cout << "Average non-linear reprojection error: " << nl_average_error << " pixels" << std::endl;
     return points_3d.size() > 0;
 }
