@@ -297,27 +297,27 @@ void get_correct_R_and_t(
 //// non-linear optimization
 class TriangulationObjective : public Objective_LM {
 public:
-    std::vector<Vector2D> p, p_prime;  // 2D points;
-    Matrix M,Mp; // camera parameter matrices
+    std::vector<Vector2D> p, p_prime;  // 2D points
+    Matrix M, Mp; // camera parameter matrices
 
     // constructor
-    TriangulationObjective(int num_func, int num_var,
-                           std::vector<Vector2D> points0, std::vector<Vector2D> points1,
-                           Matrix M0, Matrix M1)
-            : Objective_LM(points0.size()*4, 3),
-            p(points0), p_prime(points1), M(M0), Mp(M1) {}
-    int evaluate(const double *x, double *fvec){
-        double P_data[4] = {x[0], x[1], x[2], 1.0};
-        Matrix P(4,1,P_data);
+    TriangulationObjective(const std::vector<Vector2D> &points0, const std::vector<Vector2D> &points1,
+                           const Matrix &M0, const Matrix &M1)
+            : Objective_LM(points0.size() * 4, points0.size() * 3),
+              p(points0), p_prime(points1), M(M0), Mp(M1) {}
+
+    int evaluate(const double *x, double *fvec) {
         for (int i = 0; i < p.size(); ++i) {
+            double P_data[4] = {x[3 * i], x[3 * i + 1], x[3 * i + 2], 1.0};
+            Matrix P(4, 1, P_data);
             Matrix projected_p = M * P;
             Matrix projected_p_prime = Mp * P;
-            projected_p /= projected_p(2,0);
-            projected_p_prime /= projected_p_prime(2,0);
-            fvec[4*i] = projected_p(0,0) - p[i][0];
-            fvec[4*i+1] = projected_p(1,0) - p[i][1];
-            fvec[4*i+2] = projected_p_prime(0,0) - p_prime[i][0];
-            fvec[4*i+3] = projected_p_prime(1,0) - p_prime[i][1];
+            projected_p /= projected_p(2, 0);
+            projected_p_prime /= projected_p_prime(2, 0);
+            fvec[4 * i] = projected_p(0, 0) - p[i][0];
+            fvec[4 * i + 1] = projected_p(1, 0) - p[i][1];
+            fvec[4 * i + 2] = projected_p_prime(0, 0) - p_prime[i][0];
+            fvec[4 * i + 3] = projected_p_prime(1, 0) - p_prime[i][1];
         }
         return 0;
     }
@@ -400,25 +400,36 @@ bool Triangulation::triangulation(
     construct_M(K, R0, t0, M0);
     construct_M(K, R, t, M);
 
-    TriangulationObjective obj(points_0.size()*4,3,
-                               points_0, points_1, M0, M);
+    std::vector<Vector3D> points_3d_before(points_3d.begin(), points_3d.end());
 
+    TriangulationObjective obj(points_0, points_1, M0, M);
 
-    std::vector<Vector3D> nl_points_3d;
-    for (int i = 0; i < points_3d.size(); i++) {
-        std::vector<double> x = {points_3d[i].x(), points_3d[i].y(), points_3d[i].z()}; // initial guess
-        Optimizer_LM lm;
-        bool status = lm.optimize(&obj, x);
-        nl_points_3d.push_back(Vector3D(x[0],x[1],x[2]));
+    std::vector<double> x;
+    for (const auto &point : points_3d) {
+        x.push_back(point.x());
+        x.push_back(point.y());
+        x.push_back(point.z());
     }
-    for (int i = 0; i < points_3d.size(); i++) {
-        double x_d = nl_points_3d[i].x() - points_3d[i].x();
-        double y_d = nl_points_3d[i].y() - points_3d[i].y();
-        double z_d = nl_points_3d[i].z() - points_3d[i].z();
-        double p_d = x_d*x_d + y_d*y_d + z_d*z_d;
-        std::cout << i << "," << p_d << std::endl;
+    Optimizer_LM lm;
+    bool status = lm.optimize(&obj, x);
+    if (status) {
+        points_3d.clear();
+        for (int i = 0; i < x.size(); i += 3) {
+            points_3d.emplace_back(x[i], x[i + 1], x[i + 2]);
+        }
     }
+
+    std::vector<Vector3D> points_3d_after(points_3d.begin(), points_3d.end());
+
     double nl_average_error = ReprojectionError(points_1, points_3d, K, R, t);
     std::cout << "Average non-linear reprojection error: " << nl_average_error << " pixels" << std::endl;
+
+    for (int i = 0; i < points_3d.size(); i ++){
+        std::cout << "Before: " << points_3d_before[i] << std::endl;
+        std::cout << "After: " << points_3d_after[i] << std::endl;
+        std::cout << "------------" << std::endl;
+    }
+
     return points_3d.size() > 0;
+//    return nl_average_error;
 }
