@@ -3,8 +3,8 @@ Finish this function for reconstructing 3D geometry from corresponding image poi
 # To Do List
 - [x] 1. check if the input is valid
 - [x] 2. Estimate fundamental matrix F
-- [ ] 3. Recover relative pose (R and t)
-- [ ] 4. Determine the 3D coordinates 
+- [x] 3. Recover relative pose (R and t)
+- [x] 4. Determine the 3D coordinates 
 # Note
 Don't forget to
 - write your recovered 3D points into 'points_3d' (so the viewer can visualize the 3D points for you);
